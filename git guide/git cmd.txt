@@ -1,0 +1,29 @@
+C:\Users\hi>cd C:\fullstack
+
+C:\fullstack>git init
+깃 파일을 생성해준다.
+
+C:\fullstack>git remote add origin https://github.com/119drogba/fullstack.git
+로컬과 원격 저장소를 연결해준다.
+
+C:\fullstack>git branch -M main
+원격 저장소의 branch를 만들어준다.
+
+C:\fullstack>git config user.name 119drogba
+이름 저장
+
+C:\fullstack>git config user.email 119drogba@gmail.com
+이메일 저장
+
+-- 자주 쓰는 명령어
+C:\Users\hi>cd C:\fullstack
+깃 경로로 가요.
+
+C:\fullstack>git add .
+폴더 내의 변경사항을 추가해준다.
+
+C:\fullstack>git commit -m "first commit"
+변경사항 추가를 확정하고 댓글을 남긴다.
+
+C:\fullstack>git push -u origin main
+원격 저장소에 변경사항을 반영한다.
