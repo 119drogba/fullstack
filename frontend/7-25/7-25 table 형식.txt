@@ -1,0 +1,7 @@
+table태그 형식: tbody태그는 기본으로 자동 생성됨.
+블록레벨 요소임
+<table 속성명="값" style="속성명:값;...">
+	<caption>표제목</caption>
+	<thead><tr><th></th></tr></thead>
+	<tbody><tr><td></td></tr></tbody>
+</table>
