@@ -22,8 +22,10 @@ C:\Users\hi>cd C:\fullstack
 C:\fullstack>git add .
 폴더 내의 변경사항을 추가해준다.
 
-C:\fullstack>git commit -m "first commit"
+C:\fullstack>git commit -m ""
 변경사항 추가를 확정하고 댓글을 남긴다.
 
 C:\fullstack>git push -u origin main
 원격 저장소에 변경사항을 반영한다.
+
+자격 증명 관리자에서 꼭 지워주세요.
