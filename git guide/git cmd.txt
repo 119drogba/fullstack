@@ -29,3 +29,8 @@ C:\fullstack>git push -u origin main
 원격 저장소에 변경사항을 반영한다.
 
 자격 증명 관리자에서 꼭 지워주세요.
+
+cd C:\fullstack
+git add .
+git commit -m "test commit"
+git push origin main

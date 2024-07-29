@@ -1,0 +1,10 @@
+multiple = "multiple"
+
+readonly = "true"
+required = "true"
+
+selected = "true"
+
+disabled = "true"
+
+checked = "true"

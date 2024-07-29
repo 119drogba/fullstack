@@ -1,4 +1,6 @@
 css스타일 기술 형식(문법 = Syntax)
+
+
 -인라인스타일시트(inline stylesheet) : html의 시작태크 안에 style 속성으로 기술하는 방식
 형식: style="속성명:값; 속성명:값, ..."
 적용범위 : 해당 엘리먼트만
