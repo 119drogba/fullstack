@@ -1,0 +1,8 @@
+select태그 형식:
+<select name="값" 속성명="값" 속성유형>
+<option value="값">내용</option>
+<option value="값">내용</option>
+<option value="값">내용</option>
+...또는
+<option>값</option>
+</select>

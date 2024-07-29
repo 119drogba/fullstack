@@ -1,0 +1,23 @@
+get방식으로 전송하는 데이터는 url뒤에 쿼리스트링방식으로 전송한 데이터를
+키(name)와 값(value)의 쌍으로 붙여서 보낸다
+예)http://localhost:8080/abc/def.html?id=admin&pw=1234
+
+<input type="text" name="id" value="admin">
+
+form 요소들: 사용자가 입력한 데이터를 서버로 전송하기 위해 사용하는 태그들임.
+
+기술형식(문법=Syntax);
+<form [action="데이터를 전송할 페이지경로 기술(기본값: 자신의 페이지경로)" method="데이터전송방식(기본값:get)" target="이동할 페이지를 어떠한 상태로 보일지를 결정(_self)"
+autocomplete="on(기본값) 또는 off값"]>
+<input type="타입속성명" name="값" 속성명="값" style="속성명:값;속성명:값;...">
+<select 속성명="값" name="값" style="속성명:값;속성명:값;...">
+...
+</select>
+...
+<button type="submit">전송</button>
+</form>
+
+*서버 또는 다른 페이지로 데이터를 전송하기 위한 조건
+1. 입력 요소들은 반드시 form 태그로  묶어야 한다.
+2. 입력한 요소들 반드시 name 속성
+3. 

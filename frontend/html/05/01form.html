@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style>
+        form {
+            border: 1px solid #000000;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>form 태그들</h2>
+
+    <!-- action속성, label 요소, input요소 -->
+    <!-- <form> -->
+    <form action="01form.html" method="GET">
+        <!--  <form action="01form.html" method="POST">-->
+        <label for="firstname">First name:</label>
+        <input type="text" id="firstname" name="first1"value="홍" >
+        <br><br>
+
+        <label>Last name :
+            <input type="text" name="lastname" value="길동">
+        </label><br><br>
+        <label>Middle name :
+            <input type="text" name="middlename">
+        </label><br><br>
+        <!-- 선택된 상태는 포커스 -->
+        <label for="job">Job : </label>
+        <input type="text" id="job" value="학생"><br><br>
+        <!-- <input type="submit" value="가입하기"> -->
+         <!-- form태그 안에 존재하는 type이 기술되지 않은 button의 기본값은 submit이다. -->
+        <button type="submit">가입하기</button>
+    </form><br>
+<!-- form 태그에 action 속성을 기술하지 않으면 기본값은 나의페이지로 이동.
+method속성을 기술하지 않으면 기본값은 GET방식임.
+submit의 기능: submit버튼을 감싸고 있는 form태그 안의 입력값들을 전송
+(action을 활성화시키는 기능을 가지고 있다.) 
+-->
+
+    <form>
+        <input type="text" name="two1" value="홍"><br>
+        <input type="text" name="two2" value="길동"><br>
+        <input type="text" name="two3" value="중간"><br>
+
+        <input type="text" name="job" value="학생"><br><br>
+
+        <button type="submit">가입하기</button>
+
+    </form><br>
+    <!-- form태그 밖에 존재하는 type이 기술되지 않은 button의 기본값은 button이다. -->
+    <button>가입하기</button>
+<!-- <button type="button">가입하기</button> -->
+
+
+</body>
+
+</html>
