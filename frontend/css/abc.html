@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        font-family: Consolas, monospace;
+      }
+      h1 {
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+      }
+      .jb-a {
+        width: 400px;
+        margin: 0px auto;
+        position: relative
+      }
+      .jb-c {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: none;
+      }
+      .jb-a:hover .jb-c {
+        display: block;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <div class="jb-a">
+      <img src="../img/automobile.svg" alt="" class="jb-b">
+      <img src="../img/coffeehouse2.jpg" alt="" class="jb-c">
+    </div>
+  </body>
+</html>
