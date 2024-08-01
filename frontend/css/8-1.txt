@@ -1,0 +1,13 @@
+9시30분
+
+<!--HTML 한 줄, 여러 줄 주석 -->
+
+/*CSS 한 줄, 여러 줄 주석
+*/
+
+<!--<H1 style="width:500px; /*height:50px;*/"></h1>-->
+
+<style>
+/*
+table {border-collapse: collapse;}
+*/
