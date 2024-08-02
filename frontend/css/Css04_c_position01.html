@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/css03_c_position.css">
+    <title>css position</title>
+
+
+</head>
+<body>
+    <div class="static">
+        <h2>1. static (정적)</h2>
+        기본적인 배치임. 기본값(디폴트)으로 별도로 지정하지 않아도 되는 속성임.<br>
+    </div>
+    <div>
+        <div class="sticky" style="width: 300px ;z-index: 999;">
+        <h2>3. sticky (붙어있는)</h2>
+        상대적 위치의 x축, y축 좌표를 기준으로 설정한 위치에 달라 붙어 있는다.
+    </div>
+    </div>
+    <div style="position: relative; top: 50px; left: 150px;">
+        <div class="sticky" style="width: 300px;">
+            <h2>3. sticky (붙어있는)</h2>
+            상대적 위치의 x축 ,y축 좌표를 기준으로 설정한 위치에 달라 붙어 있는다.
+        </div>
+    </div>
+    <div>
+        <div class="relative">
+        <h2>4. relative (상대적)</h2>
+        자신이 위치해야하는 좌측상단 좌표를 기준으로 위치를 지정한다.<br>
+        위치 top,right,left,bottom으로 지정 가능하다.<br>
+        이동한 만큼 다른 영역을 침번한다.
+    </div>
+    <div class="fixed">
+        <h2>5. fixed (고정)</h2>
+        위치 top, right, left, bottom으로 지정 가능하며, 단위는 px, %등으로 지정 가능하다.
+        지정한 위치에 위에 떠 있는 것처럼 고정된다.
+    </div>
+    <div class="relative2">
+        <h2>6. relative와 absolute 같이 사용하는 경우</h2>
+        현재 영역은 relative영역입니다.
+        <div class="absolute2">
+            <h2>7. 현재 영역은 absolute영역입니다.</h2>
+                absolute2 div엘리먼트를 감싸고 있는 relative2 div엘리먼트의
+                x축,y축을 기준으로 하여 위치한다.
+            
+        </div>
+    </div>
+    <div class="absolute1">
+        <h2>8. absolute (절대적)</h2>
+        위치 top, right, left, bottom으로 지정 가능하며, 단위는 px, %등으로 지정 가능하다.
+        지정한 위치에 위에 떠 있는 것처럼 고정된다.
+        별도의 상대적 영역 지정이 없으면 브라우저(body영역)의
+        x축, y축을 기준으로 하여 위치한다.
+    </div>
+</body>
+<div class="sticky">
+    <h2>2. sticky(붙어있는)</h2>
+    body의 x축, y축 좌표를 기준으로 설정한 위치에 달라 붙어 있는다<div class=""></div>
+</div>
+
+<span>
+    관자재보살이 깊은 반야바라밀다를 행할 때,
+    오온이 공한 것을 비추어 보고
+    온갖 고통에서 건너느니라.
+    사리자여! 색이 공과 다르지 않고
+    공이 색과 다르지 않으며,
+    색이 곧 공이요 공이 곧 색이니,
+    수 상 행 식도 그러하니라.
+    사리자여! 모든 법은 공하여
+    나지도 멸하지도 않으며, <br><br>
+    더럽지도 깨끗하지도 않으며,
+    늘지도 줄지도 않느니라.
+    그러므로 공 가운데는 색이 없고
+    수, 상, 행, 식도 없으며,
+    안, 이, 비, 설, 신, 의도 없고,
+    색, 성, 향, 미, 촉, 법도 없으며,
+    눈의 경계도 의식의 경계까지도 없고,
+    무명도 무명이 다함까지도 없으며,<br><br>
+    늙고 죽음도 늙고 죽음이 다함까지도 없고,
+    고 집 멸 도도 없으며, 지혜도 얻음도 없느니라.
+    얻을 것이 없는 까닭에
+    보살은 반야바라밀다를 의지하므로
+    마음에 걸림이 없고 걸림이 없으므로
+    두려움이 없어서,<br><br>
+    뒤바뀐 헛된 생각을 멀리 떠나
+    완전한 열반에 들어가며,
+    삼세의 모든 부처님도
+    반야바라밀다를 의지하므로
+    최상의 깨달음을 얻느니라.
+    반야바라밀다는 가장 신비하고 밝은 주문이며
+    위없는 주문이며
+    무엇과도 견줄 수 없는 주문이니,
+    온갖 괴로움을 없애고 진실하여 허망하지 않음을 알지니라.
+    이제 반야바라밀다주를 말하리라.
+    『아제아제 바라아제 바라승아제 모지 사바하』(3번)
+</span><br><br>
+
+</html>

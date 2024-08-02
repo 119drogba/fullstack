@@ -1,0 +1,17 @@
+/* CSs04_d_font01.html 관련 CSS */
+h1#a {font-family: "Black Han Sans", sans-serif;}
+/* h1#a {font-family: "Nanum Pen Script", cursive;} */
+h1#b  {font-family: "Do Hyeon", sans-serif;}
+h1#c {font-family: Noto, sans-serif;}
+.ft {font-family: Copperplate, Papyrus, fantasy;}
+
+
+@font-face{
+    font-family: makeFont; /*폰트명 선언하기 */
+    src: url(../../font/감탄로드돋움체\ Bold.ttf) format("truetype");
+    /*src:url("../font/ARLRDBD.TTF") format("truetype); */
+    /*src:url("../font/H2GTRM.TTF") format("truetype); */
+    /*src:url("../font/HMFMPYUN.TTF") format("truetype); */
+    /*src:url("../font/HMKMAMI.TTF") format("truetype); */
+}
+div#ff {font-family: makeFont; font-weight: bolder;}
