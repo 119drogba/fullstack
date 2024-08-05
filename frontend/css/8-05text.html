@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC</title>
+    <style>
+        .ab {
+
+
+            height: 100px;
+            border-radius: 15px;
+          
+        }
+
+        #around {
+            /* -webkit-justify-content:space-around; */
+            justify-content: space-around;
+        }
+
+     
+
+
+
+        #end {
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+
+        #start {
+
+            justify-content: flex-start;
+        }
+
+        div {
+            text-align: center;
+
+
+        }
+
+        .flexbox {
+
+            width: 100%;
+            height: 100px;
+            border-radius: 15px;
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        .item {
+
+
+            width: 80px;
+            height: 50px;
+
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .item1 {
+
+
+            width: 300px;
+            height: 50px;
+
+            font-size: 26px;
+            text-align: center;
+
+        }
+
+        .search {
+            width: 400px;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url("../img/searchicon.png");
+
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="start" class="flexbox">
+        <div class="item">로고</div>
+        <div class="item">메뉴1</div>
+        <div class="item">메뉴2</div>
+        <div class="item">메뉴3</div>
+        <div id="end" class="flexbox">
+            <div class="item1">회원가입/로그인</div>
+
+        </div>
+
+    </div>
+
+
+
+    <div>
+        <img src="../img/abc.png" alt="mac" id="ham">
+    </div>
+
+    <br><br>
+    <div>
+        <form>
+            <input type="search" class="search" name="search" placeholder="검색어를 입력하세요."><br>
+    </div>
+    </form>
+    <br><br>
+
+    <img src="../img/img_girl.jpg" id="around" class="ab" alt="mac" id="ham">
+
+
+    <img src="../img/img_girl.jpg" id="around" class="ab" alt="mac" id="ham">
+
+
+    <img src="../img/img_girl.jpg" id="around" class="ab" alt="mac" id="ham">
+
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+/* Layout01.html 관련 css */
+
+* {
+    box-sizing: border-box;   /*고정사이즈 지정 padding 이나 border를  */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /*적용가능한 서체를 순서데로  */
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center; /*움직일수영역존재, 내가 감싸고 있는 자식요소 인라인요소 수평정렬 */
+    font-size: 35px; /*인라인속성은 상속된다 */
+    color: white; 
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+     /*width: 150px;  탑기준 */  
+}
+
+/* Responsive layout 반응성 레이아웃
+-화면의 가로 사이즈가 650px미만으로 적용됨. (650px 미포함) */
+
+/*only 생략 */
+@media screen and (max-width:650px) {  
+
+    nav {
+        position: relative; /*원래의 위치를 기준으로 상대적으로 위치를 바꾼다*/
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    nav ul {  /*공백은 자손 */
+        height: 100px;
+        background: #ccc;
+        list-style-type: none;
+        margin: 0;
+    }
+
+    article {
+       /* width: 100%;*/
+        height: 500px;
+        background-color: #f1f1f1;
+    }
+
+    /* section {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        top: 0;
+        left: 0;
+    } 필요없는 속성*/
+}
+
+/*화면의 가로 사이즈가 650px이상부터(650px포함) 적용됨. */
+@media screen and (min-width:650px) {
+    article { /*float는 width 설정하지 않으면 컨텐츠의 너비만큼 변한다 */
+        float: left;
+        padding: 20px;
+        width: 70%;
+        height: 500px;
+        background-color: #f1f1f1;
+    }
+
+    nav {
+        float: left;
+        width: 30%;
+        padding: 20px;
+        background: #ccc;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    section {
+        height: 500px;
+        background: #ccc;
+        /*position: relative;*/
+        /*top: 0;
+        left: 0;*/
+    }
+
+    section::after {
+        /* clear: both; */
+    }
+
+
+}

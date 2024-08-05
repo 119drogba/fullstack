@@ -5,6 +5,19 @@
 
     <title>Document</title>
     <style>
+      div {
+        text-align: center;
+      }
+
+      .button1 {
+        width: 23%;
+        background-color: green;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 15px;
+        font-size: 18px;
+      }
       .yes:focus {
         border-color: yellowgreen;
         outline: none;
@@ -16,7 +29,7 @@
 
       .no {
         width: 400px;
-      
+
         border: 2px solid #ccc;
         border-radius: 4px;
         font-size: 16px;
@@ -29,7 +42,6 @@
       }
       .yes {
         width: 400px;
-        
 
         border: 2px solid #ccc;
         border-radius: 4px;
@@ -42,22 +54,30 @@
         padding: 12px 20px 12px 40px;
       }
 
-      label {display: inline-block; padding: 15px 30px; border: 1px solid #333;}
-      input[type=radio] {display: none;}
-      input[type=radio] :checked ~ label[for="genM"] {border: 1px solid green;}
+      label {
+        display: inline-block;
+        padding: 15px 40px;
+        border: 1px solid #333;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      input[type="radio"] :checked ~ label[for="genM"] {
+        border: 1px solid green;
+      }
       label:first-of-type {
-        border-right: none;
         border-radius: 5px 0 0 5px;
       }
       form > label:not(label:first-of-type) {
         border-radius: 0 5px 5px 0;
       }
-
     </style>
   </head>
   <body>
-   
-    
+    <a href="https://naver.com" title="이동">
+      <img src="../img/naverLogo.png" alt="naver" />
+    </a>
+    <br /><br /><br /><br />
     <form>
       <div>
         <input type="text" id="id" class="no" name="id" placeholder="아이디" />
@@ -81,7 +101,7 @@
         />
       </div>
     </form>
-    <br /><br />
+    <br />
 
     <form>
       <div>
@@ -103,16 +123,9 @@
         </div>
       </div>
       <div>
-      <input type="radio" name="gender" id="genM" value="남자" checked>
-      
-      <input type="radio" name="gender" id="genW" value="여자">
-      <label for="genM">남자</label><label for="genW">여자</label>
-     <input type="submit" value="전송">
-
-      <input type="" id="" class="yes" name="" placeholder="통신사선택" />
-
-    </div>
-      <select>
+        <input type="" id="" class="yes" name="" placeholder="통신사선택" />
+      </div>
+      <!-- <select>
         <option></option>
         <option>SKT</option>
         <option>KT</option>
@@ -120,27 +133,34 @@
         <option>SKT 알뜰폰</option>
         <option>KT 알뜰폰</option>
         <option>LG U+ 알뜰폰</option>
-      </select>
+      </select> -->
+      <div>
+        <input type="radio" name="gender" id="genM" value="남자" checked />
 
-      
+        <input type="radio" name="gender" id="genW" value="여자" />
+        <label for="genM">남자</label><label for="genW">여자</label>
+        <input type="radio" name="native" id="na" value="내국인" checked />
+        <input type="radio" name="foreigner" id="for" value="외국인" />
+        <label for="na">내국인</label><label for="for">외국인</label>
+      </div>
 
       <div>
         <input
-          type="number"
+          type="text"
           id="phone"
           class="yes"
           name="phone"
           placeholder="휴대전화번호"
         />
       </div>
+      <div>
+        <input type="text" class="yes" placeholder="[필수]인증 약관 전체동의" />
+      </div>
     </form>
-    <form>
-      <input
-        type="text"
-        class="yes"
-        placeholder="[필수]인증 약관 전체동의"
-      />
-    </form>
-    <button>인증요청</button>
+
+    <br /><br /><br /><br /><br />
+    <div>
+      <button class="button1">인증요청</button>
+    </div>
   </body>
 </html>
