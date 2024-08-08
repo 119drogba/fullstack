@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 7, b = 3;
+        document.write('"7" + 3 = ', a + b, '<br>');
+        document.write("(7 + 3)= " + (a + b) + "<br>");
+
+        document.write("(7 == 3): " + (a == b) + "<br>");
+        document.write("(7 != 3): " + (a != b) + "<br>");
+
+        document.write("(!false):" + (!false) + "<br>");
+
+        // 자바스크립트에서 "!부정자료형"형식은 숫자 0, 또는 "",
+        // null , undefined 값을 제외한 모든 것을 true로 인식한다.
+        // var a = 7, b = 3;
+        document.write("(!0) : " + (!0) + "<br>");
+        document.write("(!b) : " + (!b) + "<br>");
+        document.write('(!"wow") : ' + (!"wow") + "<br>");
+
+        document.write('(!"") : ' + (!"") + "<br>");
+        document.write("(!null) : " + (!null) + "<br>");
+        document.write("(undefined) : " + (!undefined) + "<br>");
+    </script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: black;
+            color: yellowgreen;
+            font-size: 30px;
+            text-align: center;
+
+        }
+    </style>
+
+</body>
+
+</html>

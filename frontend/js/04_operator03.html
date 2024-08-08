@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 자바스크립트의 == 연산자는 다른 언어와는 다르게 강제 형변환을 실행한다.
+        document.write('254 == "254":  ', 254 == "254", "<br>");
+
+        document.write("false == null : ", false == null, "<br>");
+        document.write("false == undefined : ", false == undefined, "<br>");
+        document.write("false == 0: ", false == 0, "<br>");
+
+        document.write("true == 1: ", true == 1, "<br>");
+        document.write("true != 2: ", true != 2, "<br>");
+        document.write("undefined == null: ", undefined == null, "<br><hr>");
+
+        // === 연산자: 형변환 처리를 하지 않고 비교함.
+        document.write('254 === "254":  ', 254 === "254", "<br>");
+
+        document.write("false === null : ", false === null, "<br>");
+        document.write("false === undefined : ", false === undefined, "<br>");
+        document.write("false === 0: ", false === 0, "<br>");
+
+        document.write("true === 1: ", true === 1, "<br>");
+        document.write("true !== 2: ", true !== 2, "<br>");
+        document.write("undefined === null: ", undefined === null, "<br><hr>");
+    </script>
+</head>
+
+<body>
+<style>
+    body {
+        background-color: black;
+        color:yellowgreen;
+        font-size: 30px;
+        text-align: center;
+        
+    }
+</style>
+</body>
+
+</html>

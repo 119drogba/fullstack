@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo,
+        #demo2 {
+            color: red;
+        }
+    </style>
+    <script>
+        function spDate() {
+            /*
+            Date() : 현재시간의 정보를 영문표기법 문자열값으로 반환
+            new Date() : 현재시간의 정보와 로컬함수등 전반적인 데이터를 담고 있는 객체 생성
+            Date.now() : 현재시간의 정보를 UTC 기준으로 1970년 1월 1일 0시 0분 0초부터 현재까지
+            경과된 밀리초(ms=> 1/1000)를 반환함..
+            */
+            let a = Date.now();
+            console.log('로직이 시작시간: ' + a);
+
+            var d = new Date();
+            d.setFullYear(2020);
+            d.setMonth(9); //9+1 = 10월을 설정한 것임.
+            d.setDate(1);
+
+            var mon = d.getMonth()+1 > 9 ? d.getMonth()+1 : "0" + (d.getMonth());
+            var dd = d.getDate() > 9 ? d.getDate() : "0" + d.getDate();
+            var t = d.getHours() > 9 ? d.getHours() : "0" + d.getHours();
+
+
+            var min = d.getMinutes() > 9 ? d.getMinutes() :
+                "0" + d.getMinutes();
+
+            var w = d.getDay();
+            var week =
+                ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+
+            var n = d.getFullYear() + "년" + mon + "월" + dd + "일 " + t + ":" + min + " " + week[w];
+            document.getElementById("demo").innerHTML = n;
+            let b = Date.now();
+            console.log('로직 종료시간: ' + b);
+
+            document.getElementById('demo2').innerHTML = ' 걸린시간: ' + ((b - a) / 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Date의 set()함수</h2>
+    <span onclick="spDate()" style="color: blue; cursor: pointer;">
+        설정한 시간은?
+    </span>
+    <span id="demo"></span><br>
+    <span id="demo2"></span><br>
+
+</body>
+
+</html>

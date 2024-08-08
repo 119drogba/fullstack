@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border: 1px solid #000;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        var t1 = "학교종이 ", t2 = "땡땡땡 ", t3 = " 어서 모이자 ";
+        var t4 = 8282;
+        var result;
+        result = t1 + t2 + t3 + t4;
+        document.write(result, "<hr>");
+function tab (){
+        let style = "border:1px solid #000000; border-collapse:collapse"
+        var str = "<table style=\"" + style + "\">"; 
+        str += "<tr>";
+        str += "<td>1</td><td>2</td><td>3</td>";
+        str += "</tr>";
+        str += "</table>";
+        document.write(str);
+}
+    </script>
+</head>
+
+<body>
+<button type="button" onclick="tab()">테이블생성하기</button>
+</body>
+
+</html>

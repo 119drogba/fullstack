@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var today = new Date(); // Date 자료형의 객체 생성
+        //getMonth() : 0~11까지 (원래의 달 수보다 1이 작게 리턴됨.)
+
+        var mon = today.getMonth() + 1;
+        var week = ["일", "월", "화", "수", "목", "금", "토"];
+
+        // getDay : 0(일요일)~6(토요일)까지 가져오는 함수
+        var day = week[today.getDay()];
+
+        document.write(today.getFullYear() + "년 " + mon + "월 " + today.getDate() + "일 " + day + "요일");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

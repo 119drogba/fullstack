@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //형변환에 따른 예약값
+        document.write('Number(null): ', Number(null), "<br>");
+        //0 
+        document.write('Number(""): ', Number(""), "<br>");
+        //0
+        document.write('Number(false): ', Number(false), "<br>");
+        //0
+        document.write('Number(true): ', Number(true), "<hr>");
+        //1
+
+        //형변환에 의한 예약값이 없는 경우
+        document.write('Number(NaN): ', Number(NaN), "<br>");
+        //NaN
+        document.write('Number(undefined): ', Number(undefined), "<hr>");
+        //NaN
+
+        //동등연산자(일반 동치 연산자)에 따른 자동 형변환 값
+        //비교 연산의 대상이 다른 자료형인 경우 숫자형으로 변환하여 비교한다.
+        document.write('"" == 0: ', "" == 0, "<br>");
+        document.write('"" == false: ', "" == false, "<br>");
+        document.write('0 == false: ', 0 == false, "<br>");
+        document.write('1 == true: ', 1 == true, "<hr>");
+
+        //동등연산자(일반 등치 연산자)로 인한 형변환 불가 경우
+        //null, undefined, NaN => 형변환 불가 예약값
+        document.write('NaN == null: ', NaN == null, "<br>");
+        document.write('NaN == undefined: ', NaN == undefined, "<br>");
+        document.write('NaN == NaN: ', NaN == NaN, "<hr>");
+
+        //완전 동치 연산자(일치 연산자)
+        document.write('NaN === NaN: ', NaN === NaN, "<br>");
+
+        document.write("<br><hr>");
+        if (Number("50원") == "NaN") document.write("NaN값입니다.");
+        else document.write("NaN값이 아닙니다.");
+
+        document.write("<br>");
+        if (isNaN(Number("50원")) === true) document.write("NaN값입니다.");
+        else document.write("NaN값이 아닙니다.");
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
