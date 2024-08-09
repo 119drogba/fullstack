@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // charAt(인덱스) : 문자열의 한 글자만 추출
+        var str = "안녕하세요!";
+        var str1 = new String("안녕하세요!");
+        document.write('str.charAt(2) : ', str.charAt(2) + "<br>");
+        document.write('str[5]: ', str[5] + "<br>");
+        document.write('str.length: ', str.length + "<br>");
+
+        // Array.isArray() : 배열객체 여부 판별
+        var arr = [1, true, "JavaScript"];
+        document.write('배열어부arr: ', Array.isArray(arr) + "<br>");
+        document.write('배열어부str: ', Array.isArray(str) + "<br>");
+
+        console.log('type: ', typeof arr);
+
+        // 객체|변수|데이터 instanceof Array :배열객체 여부 판별
+        document.write((arr instanceof Array) + "<br>");
+        document.write((str instanceof Array) + "<br>");
+        document.write((str instanceof String) + "<br>");
+        document.write((str1 instanceof String) + "<br>");
+    </script>
+</body>
+
+</html>

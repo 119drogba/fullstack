@@ -1,0 +1,14 @@
+외부css연결방법
+<link rel="stylesheet" href="css파일경로">
+
+외부js연결방법
+<script src="js파일경로"></script>
+
+외부css,내부css,외부js,내부js기술순서
+
+1. 웹에서 제공해주는 외부 css <link rel="stylesheet" href="url경로">
+2. 내가 만든 외부 css <link rel="stylesheet" href="css페이지경로">
+3. 웹에서 제공해주는 외부 <script src = "url경로"></script>
+4. 내가 만든 외부 js <script src="js페이지경로"></script>
+5. 내부 css <style></style>태그 안에 기술
+6. 내부 js <script></script>태그 안에 기술
