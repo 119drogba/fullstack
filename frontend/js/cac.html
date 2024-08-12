@@ -59,8 +59,9 @@
             width: 400px;
             height: 150px;
             text-align: right ;
-            font-size: 25px;
+            font-size: 40px;
             border-radius: 10px;
+            padding: 25px;  
            
        
         }
@@ -94,24 +95,24 @@
                 <button type="button" class="btn" onclick="number(7)" >7</button>
                 <button type="button" class="btn" onclick="number(8)">8</button>
                 <button type="button" class="btn" onclick="number(9)">9</button>
-                <button type="button" class="btn operator" onclick="">+</button>
+                <button type="button" class="btn operator" onclick="operator('+')">+</button>
             </div>
             <div>
                 <button type="button" class="btn" onclick="number(4)">4</button>
                 <button type="button" class="btn" onclick="number(5)">5</button>
                 <button type="button" class="btn" onclick="number(6)">6</button>
-                <button type="button" class="btn operator" onclick="">-</button>
+                <button type="button" class="btn operator" onclick="operator('-')">-</button>
             </div>
             <div>
                 <button type="button" class="btn" onclick="number(1)">1</button>
                 <button type="button" class="btn" onclick="number(2)">2</button>
                 <button type="button" class="btn" onclick="number(3)">3</button>
-                <button type="button" class="btn operator" onclick="">*</button>
+                <button type="button" class="btn operator" onclick="operator('*')">*</button>
             </div>
             <div>
                 <button type="button" class="btn bar" onclick="number(0)">0</button>
                 <button type="button" class="btn" onclick="">.</button>
-                <button type="button" class="btn operator" onclick="">/</button>
+                <button type="button" class="btn operator" onclick="operator('/')">/</button>
             </div>
         </div>
     </div>
@@ -131,6 +132,11 @@
             display.value=0;
         }
 
+        function operator(ab) {
+         value = ab;
+        
+        }
+     
         
 
     </script>
