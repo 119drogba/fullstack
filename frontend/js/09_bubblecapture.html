@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .three {
+            border: 1px solid #000;
+            padding: 10px 30px;
+        }
+
+        .evt {
+            border: 1px solid #000;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+
+<body class="par">
+    <div class="one">
+        <div class="two">
+            <div class="three">클릭 div</div>
+        </div>
+    </div>
+
+    <h1 class="evt parevt">
+        <a href="09_bubblecapture.html" class="evt">내 페이지로 이동</a>
+    </h1>
+    <script>
+        //버블링 : 하위요소에서 상위요소로 이벤트 전파 
+        var divs = document.querySelectorAll("div");
+        /*
+        <div class = "one">...</div>
+        <div class = "two">...</div>
+        <div class = "three">클릭 div</div>
+        */
+        divs.forEach(function (div) {   //forEach(div) 요소값  forEach(div, )  1.요소값 2.인덱스
+            div.addEventListener("click", logEvent);
+        }
+        );
+
+        // var evts = document.getElementByTagName("h1")[0];
+        var evts = document.getElementsByTagName("a")[0];
+        evts.addEventListener("click", logEvent);
+
+        //캡처링 : (버블링과 반대) 상위요소에서 하위요소로 이벤트 탐색
+        /* 조상 > 부모 > 자손
+        var divs = document.querySelectAll("div");
+        divs.forEach(function(div){
+            div.addEvenetListener("click",logEvent, {
+                capture:true // default 값은 false 입니다.
+            });
+        });
+        */
+        function logEvent(event) {
+            // event.stopPropagation();  //버블링을 막는함수
+            // event.preventDefault();     //기본값을 막는다
+            console.log(event.currentTarget.className);   //currentTarget = 현재타겟이된 객체
+            return false;    // return 감싸고있는 함수 종료
+        }
+    </script>
+
+</body>
+
+</html>

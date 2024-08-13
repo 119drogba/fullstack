@@ -88,7 +88,7 @@
             <div><input type="text" name="display" id="display" value="0" readonly /><br /><br /></div>
             <br />
             <button type="button" class="btn bar" onclick="reset()">AC</button>
-            <button type="button" class="btn bar" onclick="">Enter</button>
+            <button type="button" class="btn bar" onclick="answer()">Enter</button>
             <br>
             <div>
 
@@ -132,12 +132,30 @@
             display.value=0;
         }
 
-        function operator(ab) {
-         value = ab;
-        
+        function enter(n1,oper,n2) {
+            let result = 0;
+            // 1번 또는 2번을 사용해서 result 구하기
+            // TODO: 1번. if문을 사용해서 result 구하기
+            if(oper == '+') result = n1+n2;
+            else if (oper == '-') result = n1-n2;
+            // 생략
+
+            // TODO: 2번. switch-case문을 사용해서 result 구하기
+            switch (oper) {
+                case '+': result = n1 + n2; break;
+                // 생략
+                default: /* 나머지 하나 계산 */ break;
+            }
+
+            // TODO: result를 화면에 띄우기
+            // TODO: 나머지 작업들
         }
      
-        
+        function operator() {
+            let opp = arguments[0];
+
+            // TODO: 연산자 저장하기
+        }
 
     </script>
 </body>
