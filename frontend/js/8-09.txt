@@ -4,7 +4,7 @@
 외부js연결방법
 <script src="js파일경로"></script>
 
-외부css,내부css,외부js,내부js기술순서
+외부css,내부css,외부js,내부js  기술순서
 
 1. 웹에서 제공해주는 외부 css <link rel="stylesheet" href="url경로">
 2. 내가 만든 외부 css <link rel="stylesheet" href="css페이지경로">

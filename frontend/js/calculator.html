@@ -1,121 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculator</title>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-         
-            margin: 0;
+      /* 기본 스타일 설정 */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        user-select: none;
+      }
 
-        }
+      /* 버튼이 hover될 때 스타일 */
+      .btn:hover {
+        background-color: hotpink;
+      }
 
-        .calculator{
-            background: hotpink;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 8px 8px 0 #D04B4D;
-        }
+      /* 버튼이 눌렸을 때 스타일 */
+      .btn:active {
+        top: 3px;
+        box-shadow: 1px 2px 3px black;
+        transition: 0s;
+        color: yellow;
+      }
 
-        .display {
-            margin-bottom: 10px;
-            
+      /* 버튼 기본 스타일 */
+      .btn {
+        box-shadow: 1px 5px 3px black;
+        height: 80px;
+        width: 80px;
+        border-radius: 30px;
+        background-color: white;
+        border: 1px white;
+        margin: 10px;
+        font-size: 20px;
+      }
 
-        }
+      /* 계산기 컨테이너 스타일 */
+      .container {
+        background: pink;
+        width: 500px;
+        height: 750px;
+        margin: 0 auto;
+        border-radius: 30px;
+        box-shadow: 7px 7px hotpink;
+      }
 
-        #display {
-            box-sizing: border-box;
-            width: 100%;
-            padding: 10px;
-            font-size: 24px;
-            text-align: right;
-            border: none;
-            border-radius: 5px;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
+      /* 넓은 버튼 (AC, Enter) 스타일 */
+      .bar {
+        width: 180px;
+      }
 
-        .btn{
-            background: #e0e0e0;
-            padding: 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+      /* 디스플레이 스타일 */
+      #display {
+        width: 400px;
+        height: 150px;
+        text-align: right;
+        font-size: 40px;
+        border-radius: 10px;
+        padding: 25px;
+      }
 
-        .btn:hover{
-            background-color: #ffa9a9;
-        }
+      /* 가운데 정렬 */
+      div {
+        text-align: center;
+      }
 
-        .btn:active{
-            background: #ccc;
-        }
-
-        .operator {
-            background: #333;
-            color: #fff;
-        }
-
-        .clear, .enter {
-            grid-column: span 2;
-            background: #ccc;
-        }
-
-        .zero {
-            grid-column: span 2;
-            background: #e0e0e0;
-            padding: 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        
+      /* 연산자 버튼 스타일 */
+      .operator {
+        background-color: black;
+        color: white;
+      }
     </style>
-</head>
-<body>
-    <div class="calculator">
-        <div class="display">
-            <input type="text" id="display" readonly>
-            
+  </head>
+
+  <body>
+    <br />
+    <br />
+    <br /><br />
+    <div class="container">
+      <div>
+        <br /><br />
+        <div>
+          <input
+            type="text"
+            id="display"
+            value="0"
+            readonly
+          /><br /><br />
         </div>
-    
-    <div class="buttons">
-        <button class="btn clear" id="clear">AC</button>
-        <button class="btn enter" id="enter">Enter</button>
-        <button class="btn" onclick="number(7)">7</button>
-        <button class="btn" onclick="number(8)">8</button>
-        <button class="btn" onclick="number(9)">9</button>
-        <button class="btn operator" onclick="set('+')">+</button>
-        <button class="btn" onclick="number(4)">4</button>
-        <button class="btn" onclick="number(5)">5</button>
-        <button class="btn" onclick="number(6)">6</button>
-        <button class="btn operator" onclick="set('-')">-</button>
-        <button class="btn" onclick="number(1)">1</button>
-        <button class="btn" onclick="number(2)">2</button>
-        <button class="btn" onclick="number(3)">3</button>
-        <button class="btn operator" onclick="set('*')">*</button>
-        <button class="btn zero" onclick="number(0)">0</button>
-        <button class="btn" onclick="appendNumber('.')">.</button>
-        <button class="btn operator" onclick="setOperation('/')">/</button>
-
-
+        <br />
+        <button type="button" class="btn bar" onclick="reset()">AC</button>
+        <button type="button" class="btn bar" onclick="calculate()">Enter</button>
+        <br />
+        <div>
+          <button type="button" class="btn" onclick="inputNumber(7)">7</button>
+          <button type="button" class="btn" onclick="inputNumber(8)">8</button>
+          <button type="button" class="btn" onclick="inputNumber(9)">9</button>
+          <button type="button" class="btn operator" onclick="chooseOperator('+')">+</button>
+        </div>
+        <div>
+          <button type="button" class="btn" onclick="inputNumber(4)">4</button>
+          <button type="button" class="btn" onclick="inputNumber(5)">5</button>
+          <button type="button" class="btn" onclick="inputNumber(6)">6</button>
+          <button type="button" class="btn operator" onclick="chooseOperator('-')">-</button>
+        </div>
+        <div>
+          <button type="button" class="btn" onclick="inputNumber(1)">1</button>
+          <button type="button" class="btn" onclick="inputNumber(2)">2</button>
+          <button type="button" class="btn" onclick="inputNumber(3)">3</button>
+          <button type="button" class="btn operator" onclick="chooseOperator('*')">*</button>
+        </div>
+        <div>
+          <button type="button" class="btn bar" onclick="inputNumber(0)">0</button>
+          <button type="button" class="btn" onclick="inputDot()">.</button>
+          <button type="button" class="btn operator" onclick="chooseOperator('/')">/</button>
+        </div>
+      </div>
     </div>
-</div>
-</body>
+
+    <script>
+      let currentNumber = '0';  // 현재 입력된 숫자를 저장
+      let previousNumber = '';  // 이전에 입력된 숫자를 저장
+      let operator = '';        // 선택된 연산자를 저장
+
+      const display = document.getElementById("display");  // 디스플레이 엘리먼트를 가져옴
+
+      // 숫자 버튼이 눌렸을 때 호출되는 함수
+      function inputNumber(num) {
+        if (currentNumber === '0') {
+          currentNumber = num.toString();  // 숫자를 문자열로 변환하여 저장
+        } else {
+          currentNumber += num.toString(); // 기존 숫자에 추가
+        }
+        updateDisplay();  // 화면에 표시
+      }
+
+      // 점(.) 버튼이 눌렸을 때 호출되는 함수
+      function inputDot() {
+        if (!currentNumber.includes('.')) {  // 숫자에 이미 점이 포함되어 있지 않은 경우에만 추가
+          currentNumber += '.';
+          updateDisplay();
+        }
+      }
+
+      // AC 버튼이 눌렸을 때 호출되는 함수
+      function reset() {
+        currentNumber = '0';
+        previousNumber = '';
+        operator = '';
+        updateDisplay();  // 화면 초기화
+      }
+
+      // 연산자가 눌렸을 때 호출되는 함수
+      function chooseOperator(op) {
+        if (operator !== '') {
+          calculate();  // 이전 연산이 있으면 계산
+        }
+        previousNumber = currentNumber;  // 이전 숫자에 현재 숫자를 저장
+        operator = op;  // 선택된 연산자를 저장
+        currentNumber = '0';  // 현재 숫자를 초기화
+      }
+
+      // Enter 버튼이 눌렸을 때 호출되는 함수
+      function calculate() {
+        let result = 0;
+        const prev = parseFloat(previousNumber);  // 문자열을 숫자로 변환
+        const current = parseFloat(currentNumber);
+
+        if (operator === '+') {
+          result = prev + current;
+        } else if (operator === '-') {
+          result = prev - current;
+        } else if (operator === '*') {
+          result = prev * current;
+        } else if (operator === '/') {
+          result = prev / current;
+        }
+
+        currentNumber = result.toString();  // 결과를 문자열로 변환하여 저장
+        operator = '';  // 연산자 초기화
+        updateDisplay();  // 화면에 표시
+      }
+
+      // 화면에 숫자를 표시하는 함수
+      function updateDisplay() {
+        display.value = currentNumber;
+      }
+    </script>
+  </body>
 </html>

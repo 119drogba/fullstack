@@ -58,12 +58,12 @@
         #display {
             width: 400px;
             height: 150px;
-            text-align: right ;
+            text-align: right;
             font-size: 40px;
             border-radius: 10px;
-            padding: 25px;  
-           
-       
+            padding: 25px;
+
+
         }
 
         div {
@@ -88,11 +88,11 @@
             <div><input type="text" name="display" id="display" value="0" readonly /><br /><br /></div>
             <br />
             <button type="button" class="btn bar" onclick="reset()">AC</button>
-            <button type="button" class="btn bar" onclick="answer()">Enter</button>
+            <button type="button" class="btn bar" onclick="enter()">Enter</button>
             <br>
             <div>
 
-                <button type="button" class="btn" onclick="number(7)" >7</button>
+                <button type="button" class="btn" onclick="number(7)">7</button>
                 <button type="button" class="btn" onclick="number(8)">8</button>
                 <button type="button" class="btn" onclick="number(9)">9</button>
                 <button type="button" class="btn operator" onclick="operator('+')">+</button>
@@ -118,44 +118,59 @@
     </div>
 
     <script>
+        let number1 = '0';
+        let oper = '';
+        let number2 = '';
         const display = document.getElementById('display');
 
-
         function number(num) {
-            if(display.value == 0)
-                display.value = num;
-            else
-                display.value += num;
+            if (number1 === '0') {
+                number1 = num.toString();
+            } else {
+                number1 += num.toString();
+            }
+            updateDisplay();
+
         }
 
         function reset() {
-            display.value=0;
+            display.value = 0;
         }
-
-        function enter(n1,oper,n2) {
-            let result = 0;
-            // 1번 또는 2번을 사용해서 result 구하기
-            // TODO: 1번. if문을 사용해서 result 구하기
-            if(oper == '+') result = n1+n2;
-            else if (oper == '-') result = n1-n2;
-            // 생략
-
-            // TODO: 2번. switch-case문을 사용해서 result 구하기
-            switch (oper) {
-                case '+': result = n1 + n2; break;
-                // 생략
-                default: /* 나머지 하나 계산 */ break;
+        function operator(op) {
+            if (oper !== '') {
+                enter();
             }
+            number1 = number2;
+            oper = op;
+            number1 = '0';
 
-            // TODO: result를 화면에 띄우기
-            // TODO: 나머지 작업들
-        }
-     
-        function operator() {
-            let opp = arguments[0];
 
-            // TODO: 연산자 저장하기
         }
+        function enter() {
+            let result = 0;
+            const n1 = parseFloat(number1);
+            const n2 = parseFloat(number2);
+
+
+            if (oper === '+') result = n1 + n2;
+            else if (oper === '-') result = n1 - n2;
+            else if (oper === '*') result = n1 * n2;
+            else if (oper === '/') result = n1 / n2;
+
+            number1 = result.toString();
+            oper = '';
+            updateDisplay();
+
+        }
+
+        function updateDisplay() {
+            display.value = number1;
+        }
+
+
+
+
+
 
     </script>
 </body>

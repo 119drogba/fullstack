@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <style>
+        /* html, body {padding:0!important; margin:0!important;} !important적용 */
+        /* html, body {padding:0; margin:0;} 미적용 */
+    </style>
+    <script>
+        $(function () {
+            $(".txt1").parents().css({
+                "border": "5px solid red",
+                "padding": "10px"
+            });
+
+            $(".txt2").parents("section").css({
+                "border": "5px solid red",
+                "padding": "10px"
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1 class="title">선택자</h1>
+    <section>
+        <div>
+            <p class="txt1">내용</p> <!-- div > section > body > html -->
+        </div>
+    </section>
+    <section>
+        <div>
+            <p class="txt2">내용</p> 
+            <!-- div > section  
+            .parents("section") 매개변수 까지만 적용 -->
+        </div>
+    </section>
+</body>
+
+</html>

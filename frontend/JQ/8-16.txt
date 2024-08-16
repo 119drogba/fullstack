@@ -1,0 +1,68 @@
+jQuery:
+자바스크립트의 DOM호환성의 문제점을 보안하여 나온 기술
+자바스크립트의 라이브러리의 종류 중 하나
+반드시 제이쿼리 라이브러리를 추가해야한 사용가능
+
+-장점: DOM객체를 자유롭고 편하게 설정할 수 있다.
+-단점: 필요없는 (사용하지 않는) 기능까지 모두 추가를 해야한다.
+컴파일이 이루어져야 하므로 자바스크립트보다 시간이 오래 걸린다.
+
+형식 :
+$기호 =>jQuery를 지칭하는 예약어(키워드)임.
+jQuery('선택자') 또는 $("선택자")로 표기
+jQuery(객체명)또는 $(객체명)로 표기
+
+jQuery라이브러리 추가방식
+다운로드 방식 : 라이브러리 파일을 서버에 다운받아서 연결하는 방식
+
+네트워크 방식 : 라이브러리의 url로 연결하는 방식
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+제이쿼리 기술시 순서 (유의사항)
+- 제이쿼리 라이브러리를 추가한 이후에 코드를 기술한다.
+- 로딩시점의 즉시실행 함수 안에 기술해준다.
+- html엘리먼트가 전부 컴파일이 된 이후에 기술해준다.
+
+자바스크립트의 즉시함수 종류
+1. (function(){...;})(); //컴파일 시점에 실행
+
+2. window.onload = function(){...;}; //로딩 시점에 실행
+
+제이쿼리에서 제공하는 즉시 실행 함수 종류
+//전부 로딩 시점에 적용이 된다.
+3. $(function(){...;});
+4. $(document).ready(function(){...;}); 콜백함수
+
+CSS
+영역까지 없애서 숨기세요
+display : none;
+나타나도록 해주세요.
+display : block;
+display : inline;
+display : inline-block;
+
+영역 유지하고 감추기만 하세요.
+visibility : hidden;
+
+나타나도록해주세요.
+visibility : visiable;
+
+jquery의 hide(); = > display : none;
+jqeuey의 show(); = > visibility : visiable;
+
+jquery에서 style 적용하는 방법
+
+1. 단일 속성 적용시
+$("선택자").css(속성명,속성값);
+
+2. 다중 속성 적용시 : json방식으로 기술
+$("선택자").css({속성명: 속성값, 속성명:속성값, ...});
+
+17:47
+
+text() => 값자리의 innerText 의미   
+text("매개인자값") => 공간자리의 innerText 의미
+
+html() => 값 자리의 innerHTML 의미
+html("매개인자값") => 공간자리의 innerHTML 의미
