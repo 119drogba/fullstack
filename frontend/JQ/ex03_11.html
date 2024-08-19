@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script>
+        $(function () {
+            /*
+            $("선택자").find("요소 또는 선택자") : 선택한 요소의 하위 요소를 필터링(검색)할 때 사용.
+            범위: 자식,자손 모두 검색 가능
+            $("선택자").filter(callback 또는 요소 또는 선택자) : 자기 자신의 레벨에서 필터링(검색)을 할 때 사용,
+            범위 : 형제만 가능*/
+            $("#inner_1").find(".txt1").css({ "background-color": "yellow" });
+            $("#inner_1 p").filter(".txt2").css({ "background-color": "aqua" });
+
+            $("#inner_2 p").filter(function (i, o) {
+                //console.log(i, o);
+                console.log(o.innerText);
+                if (o.innerText != '오징어') { return true; }
+                else return false;
+                // 단 아이템매개변수는 생략 가능하지만 인덱스 매개변수는 생략 불가
+                // 첫번째 매개변수 =>인덱스값, 두번째 매개변수 => 아이템(요소)
+                return i % 2 == 0; //반드시 true값이 되어야 한다.
+
+            }).hide();//.css({ "background-color": "yellowgreen" });
+
+            $("#searchBtn").click(function () {
+                // $("#inner_2 p").show();
+
+                let str = document.getElementById('searchStr').value;
+                $("#inner_2 p").filter(function (i, o) {
+                    console.log(`str: ${str}, o.innerText: ${o.innerText}`);
+                    if (!o.innerHTML.includes(str)) { return true; }
+                    else return false;
+                }).hide();
+            })
+
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="outer_wrap">
+        <h1>콘텐츠 탐색 선택자</h1>
+        <section id="inner_1">
+            <h2>find( ), filter( )</h2>
+            <p class="txt1">내용1</p>
+            <p class="txt2">내용2</p>
+        </section>
+
+        <p>
+            <input type="search" id="searchStr" placeholder="검색어를 입력하세요.">
+            <input type="button" id="searchBtn" value="검색">
+        </p>
+        <section id="inner_2">
+            <h2>filter(function)</h2>
+            <!-- <p>index 0</p>
+            <p>index 1</p>
+            <p>index 2</p>
+            <p>index 3</p> -->
+            <p>둘리</p>
+            <p>오징어</p>
+            <p>개</p>
+            <p>문어</p>
+            <p>낙지</p>
+        </section>
+    </div>
+</body>
+
+</html>

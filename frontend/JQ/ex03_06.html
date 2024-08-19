@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script>
+        function ent() {
+            //:hidden탐색선택자 : 엘리먼트의 속성이 display: none인 태그만 인지함.
+            // $("#wrap p:hidden").css({"display": "block", "background":"#ff0"});
+
+            // var z1 = $("#course :selected").val();   //매개변수 없으면 가져와 , 있으면 설정해 
+            // var z1 = $("#course :selected");
+            // var z1 = $("#zone1 :selected").val();
+            // console.log("z1:", z1);
+            // consol.log(z1[0].attributes[0].value);
+
+            var z2 = $("#zone2 :checked").val(); // val() 받으면 0번 인덱스
+            // var z2 = $("#zone2 :checked"); // 배열객체로 반환
+            console.log("z2: ", z2);
+
+            // var z3 = $("#zone3 :checked").val();
+            // var z3 = $("#zone3 :checked");
+            // console.log("z3:", z3);
+        }
+
+        //});
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="ent()">클릭</button>
+    <div id="wrap">
+        <p>내용1</p>
+        <p style="display:none">내용2-1</p>
+        <p style="visibility:hidden">내용2-2</p>
+        <p>내용3</p>
+    </div>
+    <form action="#">
+        <p id="zone1">
+            <select name="course" id="course">
+                <option value="opt1">옵션1</option>
+                <option value="opt2" selected>옵션2</option>
+                <option value="opt3">옵션3</option>
+            </select>
+        </p>
+        <p id="zone2">
+            <input type="checkbox" name="hobby1" value="독서"> 독서
+            <input type="checkbox" name="hobby2" value="자전거"> 자전거
+            <input type="checkbox" name="hobby3" value="등산" checked> 등산
+            <!--선택 x - 반환값 빈문자열 , 선택  O - 배열 -->
+        </p>
+        <p id="zone3">
+            <input type="radio" name="gender" value="male"> 남성
+            <input type="radio" name="gender" value="female" checked> 여성
+        </p>
+
+    </form>
+
+</body>
+
+</html>
