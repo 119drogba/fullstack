@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        .ptxt {
+            display: none;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".a1").hover(
+                function () {
+                    $('.txt1').show();
+                }, function () {
+                    $('.txt1').hide();
+
+                }
+            );
+
+            $(".a2").click(function(){
+                $('.txt2').show();
+            });
+            // $(".a2").on("click",function(){
+            //     $('.txt2').show();
+            // });
+            // document.getElementsByClassName('a2')[0].onclick = function(){
+            //     document.querySelector('.txt2').style.display = 'block';
+            // };
+
+            $('.btn1').on("mousedown",function(){
+                $('.txt3').show();
+            })
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

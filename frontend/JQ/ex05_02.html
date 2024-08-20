@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 그룹선택자의 엘리먼트들이 html요소의 인덱스에 맞춰 오름차순으로 정렬됨.
+            var $searchEles = $('p,span,div.simpletext1');
+            /*
+          0: <p>example</p>
+          1: <span>simple</span>
+          2: <div class='simpletext1'>jQuery</div>
+          length : 3
+            */
+            var resultText = "엘리먼트 개수: " + $searchEles.length + "\n";
+            console.log('searchEles: ', $searchEles);
+
+            $searchEles.each(function () {
+                console.log("this: " + this.tagName);  //태그이름 대문자로 반환
+                console.log("$(this): " + $(this).prop('tagName'));
+
+                resultText += $(this).text() + ",";
+            });
+
+            $.each($searchEles, function () {
+                console.log("$(this):" + $(this).prop('tagName'));
+                resultText += $(this).text() + ",";
+            });
+
+            $searchEles.each(function (i, v) {
+                console.log(i + ":" + $(this).text());
+                console.log(i + ":" + $(v).text());
+                console.log("====================");
+            });
+
+            $(document.body).append(resultText);
+
+            $searchEles.click(function(){
+                if(this.tagName == 'P') alert('p태그입니다.');
+                else alert('p태그가 아닙니다.');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <span>simple</span>
+    <div class='simpletext1'>jQuery</div>
+    <div>basic</div>
+    <p>example</p>
+</body>
+
+</html>

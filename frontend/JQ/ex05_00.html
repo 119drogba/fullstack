@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <style>
+        div {
+            float: left;
+            margin: 25px;
+        }
+    </style>
+    <script>
+        $(function () {
+            //jquery의 each()함수 형식
+            //$.each(배열객체명, 콜백함수);
+            //$(배열객체명).each(콜백함수);
+
+            var fruits = ["apple", "banana", "orange", "melon"];
+            fruits.forEach(function (obj, idx) {
+                console.log(obj, idx);
+            });
+
+            $.each(fruits, function (index, value) {
+                $("#fruits_list").append($("<li>" + value + "</li>"));
+            });
+
+            $("fruits").each(function (index, value) {
+                $("#fruits_list").append($("<li>" + value + "</li>"));
+            });
+
+            $(fruits).each(function (index, value) {
+                $("#fruit_list").append($("<li>" + value + "</li>"));
+            });
+
+            /*
+                append함수들: 선택된 요소의 맨 막내자식으로 추가하는데 html형식으로 추가하세요.
+                $("부모선택자 또는 부모요소").append("추가할 자식 요소");
+                $("추가할 자식 요소").appendTo("부모선택자 또는 부모요소");
+            */
+            var cars = ["sonata", "grandure", "genesis"];
+            $(cars).each(function (index,value){
+                $("#car_list").append($("<li>"+value+"</li>"))
+            })
+            $.each(cars, function (index, value) {
+                $("<li>" + value + "</li>").appendTo("#car_list");
+                //$("#car_list").append("<li>"+value+"</li>");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <b> 과일 리스트 </b>
+        <ul id="fruits_list">
+            <li>grape</li>
+        </ul>
+    </div>
+    <div>
+        <b> 차종 리스트 </b>
+        <ul id="car_list">
+            <li>soul</li>
+        </ul>
+    </div>
+</body>
+
+</html>

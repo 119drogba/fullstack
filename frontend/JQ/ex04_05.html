@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <style>
+        ul {
+            float: left;
+            margin: 30px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('a').click(function () {
+                //e.target = event.target = this = <a href="../img/cute_dog.jpg">사진1</a>
+                //e.target = event.target = this = <a href="../img/img_girl.jpg">사진2</a>
+
+                $("img").attr("src", $(this).attr("href"));
+                // 현재 페이지에 이미지 표시하도록 설정
+                return false;
+            });
+
+            //<img src="../img/cute_dog.jpg">
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="../img/cute_dog.jpg">사진1</a></li>
+        <li><a href="../img/img_girl.jpg">사진2</a></li>
+    </ul>
+    <img>
+</body>
+
+</html>
