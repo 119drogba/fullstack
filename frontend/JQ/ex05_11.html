@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <style>
+        body {
+            font: 12pt "Malgun Gothic", "맑은고딕", sans-serif;
+        }
+
+        /* .btn {font-size:12pt;}*/
+    </style>
+    <script>
+        $(function () {
+            var fSize = 12;
+            $(".zBtn .btn").on("click", zInOut);
+
+            function zInOut() {
+                if ($(this).hasClass("zOut")) {
+                    if (fSize <= 8) return false;
+                    fSize--;
+                }
+                else if ($(this).hasClass("zIn")) {
+                    if (fSize >= 50) return false;
+                    fSize++;
+                }
+                else { fSize = 12; }
+                $(".fontSize").text(fSize + "pt");
+
+                /*속성명:
+                객체로 사용시 -(대시)제거 카멜기법으로 표기.
+                css속성명 그대로 사용하는 경우는 따옴표로 묶어줌. */
+                $("body").css({ 'font-size': fSize + "pt" });
+                $("#rel_site, #rel_site option").css({ 'font-size': fSize + "pt" });
+                $(".btn").css({ 'font-size': fSize + "pt" });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <p class="zBtn">
+        <button class="btn zOut">-</button>
+        <button class="btn originBtn">100%</button>
+        <button class="btn zIn">+</button>
+    </p>
+    <p class="fontSize">12pt</p>
+
+    <div id="wrap">
+        Update: It’s nearly time for the “Cement Grey” rendition of the Air Jordan 3 to land on shelves as Nike has just
+        unveiled its official imagery of the long-awaited kicks. The new iteration features the silhouette’s iconic
+        elephant print detailing, combining it with white and grey detailing throughout. Release is set for August 31 at
+        a price of $200 USD via Nike SNKRS and select retailers. For more info about the pair, review our initial
+        breakdown below.
+        Original Story: Fans of the Air Jordan 3 are set for another exciting year as Jordan Brand continues to lean on
+        the 36-year-old sneaker as a staple in its lifestyle arsenal. Aside from the recent launch of its Craft “Ivory”
+        iteration, A Ma Maniére is said to have two new colorways of the AJ3 on the way, with a “Black Cement
+        Reimagined” rumored for a holiday release. Adding to the lineup, a “Cement Grey” colorway has now surfaced.
+    </div>
+<style>
+    /*
+    select#rel_site {width: 200px; height:50px;}  셀렉트박스 옵션의 크기는 변경불가
+    */
+</style>
+    <select id="rel_site">
+        <option value="">사이트 선택</option>
+        <option value="www.google.com">구글</option>
+        <option value="www.naver.com">네이버</option>
+        <option value="www.daum.net">다음</option>
+    </select><br>
+
+    <input type="checkbox" name="allchk" id="allchk">
+    <label for="allchk">모두체크</label>
+</body>
+
+</html>

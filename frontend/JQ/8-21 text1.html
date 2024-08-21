@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+</head>
+
+<script>
+    $(function () {
+
+        $('img').eq(0).width(600);
+        $('img').eq(0).height(600);
+        var width = 120;
+        var height= 120;
+        $(".zbtn .btn").on("click", zInOut);
+
+        function zInOut() {
+            if ($(this).hasClass("minus")) {
+                
+                if (width <= 120) return false;
+                width--;
+            }
+            else if ($(this).hasClass("plus")) {
+                if (width >= 600) return false;
+                width++;
+            }
+            else { width = 120; }
+                $(".aa").text(width);
+                $(".aa").css({'img':width });
+        }
+    });
+</script>
+
+<body>
+    <p class="zbtn">
+        <button class="btn minus">-</button>
+        <button class="btn origin">100%</button>
+        <button class="btn plus">+</button>
+        
+    </p>
+    <img src="../img/cute_dog.jpg" class="aa">
+</body>
+    
+
+    
+
+
+</html>
