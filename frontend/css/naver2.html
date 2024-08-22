@@ -8,9 +8,7 @@
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      border: 0;
+
 
     }
 
@@ -49,6 +47,11 @@
       cursor: pointer;
     }
 
+    input[type="radio"]:focus {
+      border-color: yellowgreen;
+      outline: none;
+    }
+
     .yes:focus,
     .no:focus {
       border-color: yellowgreen;
@@ -69,55 +72,87 @@
       display: block;
     }
 
-    label {
+    #container label {
+      width: 90px;
+      height: 35px;
       display: inline-block;
-      padding: 15px 40px;
+      padding: 5px 10px;
       border: 1px solid #333;
       cursor: pointer;
+    }
+
+    #container {
+      width: 400px;
+      height: 100px;
+      margin: auto;
+    }
+
+    #container>div {
+      width: fit-content;
+      height: fit-content;
+      display: inline;
     }
 
     input[type="radio"] {
       display: none;
     }
 
-    input[type="radio"]:checked+label {
+    /* input[type="radio"]:checked+label {
       border: 2px solid green;
-    }
+    } */
 
-    label:first-of-type {
+    label {
       border-radius: 5px 0 0 5px;
     }
 
     form>label:not(label:first-of-type) {
-      border-radius: 0 5px 5px 0;
+      border-radius: 10px 10px 0;
+    }
+
+    .placeholder-blur::placeholder {
+      color: red;
+    }
+
+
+
+    #num1 {
+      display: none;
     }
   </style>
 
 </head>
 
 <body>
-  <a href="https://naver.com" title="이동">
-    <img src="../img/naverLogo.png" alt="naver" />
-  </a>
-
+  <div>
+    <a href="https://naver.com" title="이동">
+      <img src="../img/naverLogo.png" alt="naver" />
+    </a>
+  </div>
+<br>
   <form>
     <div>
-    <div>
-      <input type="text" id="id" class="no a" name="id" placeholder="아이디" />
+      
+        <input type="checkbox" name="real" id="real" checked>
+        <label for="">실명 인증된 아이디로 가입</label>
+      
+<br>
+      <div>
+        <input type="text" id="id" class="no a" name="id" placeholder="아이디" />
 
+      </div>
+
+      <div>
+        <input type="password" id="pwd" class="no" name="pwd" placeholder="비밀번호" />
+      </div>
+      <div>
+        <input type="email" id="email" class="no" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" />
+      </div>
     </div>
-    <div>
-      <input type="password" id="pwd" class="no" name="pwd" placeholder="비밀번호" />
-    </div>
-    <div>
-      <input type="email" id="email" class="no" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" />
-    </div>
-  </div>
     <div id="txt"></div>
     <div id="txt1"></div>
-  
+    <br>
 
-  
+
     <div>
       <input type="text" id="name" class="yes" name="name" placeholder="이름" />
     </div>
@@ -138,51 +173,55 @@
       </select>
     </div>
 
-    <div>
-      <input type="radio" name="gender" id="genM" value="남자" />
-      <label for="genM">남자</label>
+    <div id="container">
+      <div>
+        <input type="radio" name="gender" id="genM" value="남자" />
+        <input type="radio" name="gender" id="genW" value="여자" />
+        <label for="genM">남자</label><label for="genW">여자</label>
+      </div>
 
-      <input type="radio" name="gender" id="genW" value="여자" />
-      <label for="genW">여자</label>
+      <div>
+        <input type="radio" name="nationality" id="na" value="내국인" checked />
+        <input type="radio" name="nationality" id="for" value="외국인" />
+        <label for="na">내국인</label><label for="for">외국인</label>
+      </div>
+      <div>
+        <select id="num1" class="yes" name="num1">
+          <option value="">대한민국 +82</option>
+          <option value="그레나다 +1 473">그레나다 +1 473</option>
 
-      <input type="radio" name="nationality" id="na" value="내국인" checked />
-      <label for="na">내국인</label>
+      </div>
+      <div>
+        <input type="text" id="phone" class="yes" name="phone" placeholder="휴대전화번호" />
+      </div>
 
-      <input type="radio" name="nationality" id="for" value="외국인" />
-      <label for="for">외국인</label>
+
+
     </div>
-
-    <div>
-      <input type="text" id="phone" class="yes" name="phone" placeholder="휴대전화번호" />
-    </div>
+<br><br>
     <div id="txt2"></div>
     <div id="txt3"></div>
     <div id="txt4"></div>
 
-    <div>
-      <input type="text" class="yes" placeholder="[필수] 인증 약관 전체동의" />
-    </div>
-  
 
-  <div>
-    <button class="button1">인증요청</button>
-  </div>
-</form>
+
+
+  </form>
   <script>
     $('#id').on('blur', function () {
       if ($('#id').val() == '') {
         $('#txt').css('color', "red").text('아이디: 필수 정보입니다.');
-        $('#id').css({'border':"2px solid red",'text-decoration': "underline",'text-decoration-color':"red"})
+        $('#id').css({ 'border': "2px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
       } else {
-        $('#txt').css('color', 'red').text('아이디: 사용할 수 없는 아이디입니다. 다른 아이디를 입력해 주세요.');
+        $('#txt').css('color', 'red').text('아이디: 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.');
       }
     });
 
     $('#pwd').on('blur', function () {
       if ($('#pwd').val() == '') {
         $('#txt1').css('color', "red").text('비밀번호: 필수 정보입니다.');
-        $('#pwd').css({'border':"2px solid red",'text-decoration': "underline",'text-decoration-color':"red"})
+        $('#pwd').css({ 'border': "2px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
       } else {
         $('#txt1').css('color', 'red').text('비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.');
@@ -192,31 +231,42 @@
     $('#name').on('blur', function () {
       if ($('#name').val() == '') {
         $('#txt2').css('color', "red").text('이름: 필수 정보입니다.');
-        $('#name').css({'border':"2px solid red",'text-decoration': "underline",'text-decoration-color':"red"})
+        $('#name').css({ 'border': "2px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
       } else {
-        $('#txt2').css('color', 'red').text('');
+        $('#txt2').css('color', 'red').text('이름: 한글, 영문 대/소문자를 사용해 주세요. (특수기호, 공백 사용 불가)');
       }
     });
 
     $('#date').on('blur', function () {
       if ($('#date').val() == '') {
         $('#txt3').css('color', "red").text('생년월일: 필수 정보입니다.');
-        $('#date').css({'border':"2px solid red",'text-decoration': "underline",'text-decoration-color':"red"})
+        $('#date').css({ 'border': "2px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
       } else {
-        $('#txt3').css('color', 'red').text('');
+        $('#txt3').css('color', 'red').text('생년월일: 생년월일은 8자리 숫자로 입력해 주세요.');
       }
     });
     $('#phone').on('blur', function () {
       if ($('#phone').val() == '') {
         $('#txt4').css('color', "red").text('휴대전화번호: 필수 정보입니다.');
-        $('#phone').css({'border':"2px solid red",'text-decoration': "underline",'text-decoration-color':"red"})
+        $('#phone').css({ 'border': "2px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
       } else {
-        $('#txt4').css('color', 'red').text('');
+        $('#txt4').css('color', 'red').text('휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.');
       }
     });
+
+    $('#real').on('click', function () {
+      if ($(this).is(':checked')) {
+        $('#carrier').hide();
+        $('#num1').show();
+      } else {
+        $('#carrier').show();
+        $('#num1').hide();
+      }
+    });
+
   </script>
 </body>
 
