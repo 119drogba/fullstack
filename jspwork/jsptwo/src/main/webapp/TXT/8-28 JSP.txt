@@ -1,0 +1,147 @@
+
+URI, URL 및 URN의 차이점
+
+http://nal.la/vh7bJv
+
+
+ContextPath  = 프로젝트명
+QueryString = url의 ?부터
+
+데이터를 전송하는 방식과 방법
+POST방식 : form태그의 method를 post로 설정하여 전송
+GET방식 : jsp:param액션태그를 제외한 나머지 전송시에는 인코딩
+이 필요 없다.
+1. form태그의 method를 get으로 설정하여 전송
+
+2. 페이지를 이동할 수 있는 url경로 뒤에 쿼리문자열을 기술하여 전송
+예: <a href="08_05_03_request05.jsp?nowPage=1">1</a>
+예: location.href = "08_05_03_request05.jsp?nowPage=1"
+
+3. jsp:param태그를 사용하여 전송(반드시 보내는 곳에서 인코딩,
+받는 곳에서 디코딩처리를 해주어야 한다.) -GET방식
+
+jsp내장객체
+request => HttpServletRequest자료형으로 만든 객체
+
+response내장객체 : 서버가 응답하는 모든 전반적인 정보와 기능을 담고 있는
+jsp에서 제공하는 내장객체.
+페이지 이동(리다이텍트방식), 파일 생성, 로그 기록, 쿠키 생성, 응답시 필요한 데이터들을 전
+송할 때 사용하는 객체
+send리다이렉트는 out.print 무시 
+send리다이렉트 utf-8 형식으로 압축하여 데이터 보냄
+ex. if else문으로 처리해야함
+ 
+=> HttpServletResponse자료형으로 만든 객체
+리다이렉트로 들어오면 리퀘스트 사라짐
+
+(내장객체 표로 정리)
+
+/ =  ContextPath를 지우세요
+톰캣서버와 관련된 xml파일은 반드시 서버(톰캣)끄고 작업
+
+컨텍스트 변경방법
+(**반드시 톰캣서버 종료한 뒤에 해야합니다!!!)
+(**반드시 path설정시 앞에 /를 먼저 기술해야 합니다!!!)
+
+이클립스에서 변경하기
+1. Servers탭 선택
+-> Tomcat ~~~ 더블크릭
+-> 하단의 module탭 선택하면 나오는 화면에서 변경하고자하는 프로젝트명선택
+-> 좌측의 edit메뉴 선택
+-> 팝업창에서 변경하고자하는 path를 입력할 것
+예) "/md 또는 "/"(=>context를 없앰) 기본값: "/프로젝트명"
+
+2. 우측의 project Explore탭 안의 Servers폴더 선택
+-> Tomcat ~~~폴더 확장하면 나오는 파일 중에 server.xml파일 선택하여 열기
+-> 파일 맨 하단으로 내려서
+<Host ~~></Host>태그 안의 가장 마지막에 있는
+<Context ~/>태그 수정할것
+예: <Context docBase="프로젝트명" path="/변경하고자하는경로명" reloadable="true" />
+================================================================================
+apache tomcat에서 직접 수정하기
+[apache-tomcat-버전명시] 폴더
+-> conf 폴더 ->
+server.xml파일 선택하여 열기
+->파일 맨 하단으로 내려서
+<Host ~~></Host>태그 안의 가장 마지막에
+<Context ~/>태그 기술할 것
+예: <Context docBase="프로젝트명" path="/변경하고자하는경로명" reloadable="true"/>
+
+
+
+1. 톰캣 폴더 
+2. conf
+3. sever.xml 메모장으로 실행
+4. 맨 마지막에 아래 추가
+<Context docBase="어플리케이션명" path="/어플리케이션명" reloadable="true"/>
+
+ex. 현재페이지 : http://localhost:8090/jspfirst/08_06_response01.jsp
+데이터 전송 : post
+action(데이터=파라미터를 보낼 페이지) : 08_06_response01_process.jsp
+
+request 객체 parameter(post) : 받는곳에서 반드시 인코딩부터 처리할 것 (아스키코드)
+---------------------------------------------------
+속성명(=파라미터 명)            속성값(=파라미터 값)
+---------------------------------------------------
+id                             admin
+passwd                         1234
+
+
+내장객체
+out
+response
+request
+application
+session
+
+application : jsp에서 제공하는 내장객체로 애플리케이션(프로젝트단위)의
+              전반적인 정보와 기능들을 담고 있는 객체임. 프로젝트가 실행
+              이되는 순간부터 프로젝트가 (웹서버)종료되는 순간까지 살아있는 가장
+              넓은 범위의 생명주기를 가진 객체임
+
+
+/  = ContextPath가 존재합니다
+application.getResourceAsStream("/파일경로설정");
+
+위에서 파일경로 앞의 "/"가 의미하는 것은 /앞에 context의 경로까지 존재한다는 의미임.
+
+request객체 parameter (get) => String , String[]
+: 요청한 순간부터 응답이 완료되기 전까지, 또는 응답전이라도 (html로 컴파일되기전)
+리다이렉트를 만나기 전까지 살아있는 내장객체
+속성명  속성값
+abc     fruit
+
+application객체 Attribute(영역) => Object
+: 프로젝트가 실행되는 순간(웹서버실행순간)부터 프로젝트가 종료되는
+순간(=웹서버가 종료되는 순간)까지 살아있는 내장 객체
+속성명   속성값
+fruit    orange
+
+
+10_02_makeTime.jsp
+request 영역 Attribute   (Object)      
+속성명      속성값
+"time"      &100(Calendar cal)
+"test"      "홍길동"    
+
+request 영역 parameter  => String, String[]
+속성명          속성값
+"time"          "시간"
+
+
+자바 예외처리 :
+1. try ~ ~ catch
+2. throws
+
+jsp 예외처리 :
+1. try ~~ catch  (문법 내)
+2. page지시태그의 errorPage속성 (page)
+3. web.xml에 <error~~>태그로 지정하는 예외처리 (application)
+4. 브라우저에서 자동으로 제공하는 기본 예외처리  (all)
+
+
+<%@ page isErrorPage = "true" %>
+exception 사용
+
+
+

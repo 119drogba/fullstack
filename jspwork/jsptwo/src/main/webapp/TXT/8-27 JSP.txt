@@ -1,0 +1,62 @@
+jsp 액션태그
+
+<jsp:include
+<jsp:useBean id="객체명" class="패키지경로포함.클래스명까지"/>
+
+jsp내장객체 및 영역
+
+https://codevang.tistory.com/202#google_vignette
+
+
+pageContext : 현재 페이지 내에서의 범위를 가지는 내장 객체임.
+현재 페이지 내의 전반적인 정보를 담고 있고, 페이지내에서의 데이터를
+설정하거나 변경할 때 사용하는 내장 객체임.
+
+request : 클라이언트가 서버로 요청한 시점부터 서버가 클라이언트한테
+응답하기 전까지, 또는 요청을 처리할 때 리다이렉트를 만나기 전까지 
+살아있는 내장 객체임.
+**요청에 대한 전반적인 정보를(=데이터) 담아가는 객체
+
+session : 현재 사용한 브라우저가 닫힐 때까지 또는 내가 세션 객체를
+초기화하기 전까지 살아있는 내장 객체임.
+**대부분 로그인 정보를 처리할 때 사용하는 객체임.
+**세션객체 설정을 해주지 않으면 세션객체가 자동으로 소멸되는 시간
+은 30분임.
+
+
+application : 프로젝트가 실행되어 종료되는 순간까지 살아있는 
+내장객체임. 애플리케이션의 전반적인 정보를 담고 있으며, 
+애플리케이션의 전반적인 설정이나 변경을 처리할 때 사용하는 객체이다.
+
+pageContext < request < session < application
+
+ pageContext 
+
+  attribute
+  (Object)
+  설정 : setAttribute("속성명",속성값)
+  값 가져오기 : getAttribute("속성명");
+  속성명(name)
+  속성값(value)
+
+
+ request 객체
+
+  attribute
+  (Object)
+  attribute 상동
+
+  parameter(String)
+  - get
+    form , a , js
+    속성명 속성값
+  - post
+    form method = "post"
+    속성명 속성값
+    데이터를 받는 곳에서 인코딩 필요
+
+parameter(파라미터) : Get방식이나 Post방식으로 전송하는 모든 데이터
+
+
+
+

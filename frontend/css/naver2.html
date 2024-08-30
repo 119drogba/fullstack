@@ -82,17 +82,48 @@
       display: inline;
     }
 
+
+    .radio_group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
     input[type="radio"] {
       display: none;
     }
 
-    /* input[type="radio"]:checked+label {
-      border: 2px solid green;
-    } */
+    label[type="radio"] {
+      padding: 10px 20px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      cursor: pointer;
 
-    label {
-      border-radius: 5px 0 0 5px;
+
+      text-align: center;
+      flex: 1;
+      margin: 0 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
     }
+
+    input[type="radio"]:checked+label {
+      border-color: limegreen;
+      color: limegreen;
+
+    }
+
+    label:first-of-type {
+      margin-left: 0;
+    }
+
+    label:last-of-type {
+      margin-right: 0;
+    }
+
+
+
+
 
     form>label:not(label:first-of-type) {
       border-radius: 10px 10px 0;
@@ -102,9 +133,6 @@
       color: red;
     }
 
-    /* .placeholder-blur::target-text {
-      color: red;
-    } */
 
 
     #num1 {
@@ -128,19 +156,6 @@
 
     #aa input {
       cursor: pointer;
-    }
-
-    #genM {
-      position: relative;
-    }
-
-    #genW {
-      position: absolute;
-      text-align: center;
-    }
-
-    ul {
-      list-style: none;
     }
   </style>
 
@@ -174,11 +189,12 @@
     </div>
     <div id="txt"></div>
     <div id="txt1"></div>
+    <div id="txt7"></div>
     <br>
 
 
     <div>
-      <input type="text" id="name" class="yes" name="name" placeholder="이름" />
+      <input type="text" id="name1" class="yes" name="name1" placeholder="이름" />
     </div>
 
     <div>
@@ -187,7 +203,7 @@
 
     <div>
       <select id="carrier" class="yes" name="carrier">
-        <option value="">통신사선택</option>
+        <option value="CHOOSE">통신사선택</option>
         <option value="SKT">SKT</option>
         <option value="KT">KT</option>
         <option value="LGU+">LG U+</option>
@@ -198,77 +214,77 @@
     </div>
 
     <div id="container">
-      <!-- <div id="bb">
-        <ul>
-          <li>
-            <input type="radio" name="gender" id="genM" value="남자" />
-
-            <label for="genM">남자</label>
-          </li>
 
 
-          <li>
-            <input type="radio" name="gender" id="genW" value="여자" />
-            <label for="genW">여자</label>
-          </li>
-        </ul>
+
+      <div id="cc" class="radio_group">
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">남자</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">여자</label>
       </div>
 
-      <div id="ab">
-        <ul>
-          <li>
-            <input type="radio" name="nationality" id="na" value="내국인" checked />
-            <label for="na">내국인</label>
-          </li>
+      <div class="radio_group">
+        <input type="radio" id="dome" name="nationality" value="dome" checked>
+        <label for="dome">내국인</label>
 
-          <li>
-            <input type="radio" name="nationality" id="for" value="외국인" />
-            <label for="for">외국인</label>
-          </li>
-        </ul>
-
-
-      </div> -->
-      <div id="rd_gr_div" class="div_i">
-        <div class="radio_group">
-          <input type="radio" id="g_male" name="gender" class="hide" value="male"><label for="g_male">남자</label><input
-            type="radio" id="g_female" name="gender" class="hide" value="female"><label for="g_female">여자</label>
-        </div>
-        <div class="radio_group">
-          <input type="radio" class="hide" id="nati_dome" name="nationality" value="dome" checked><label
-            for="nati_dome">내국인</label><input type="radio" class="hide" id="nati_fore" name="nationality"
-            value="fore"><label for="nati_fore">외국인</label>
-        </div>
+        <input type="radio" id="fore" name="nationality" value="fore">
+        <label for="fore">외국인</label>
       </div>
-      <div>
-        <select id="num1" class="yes" name="num1">
-          <option value="">대한민국 +82</option>
-          <option value="그레나다 +1 473">그레나다 +1 473</option>
 
-      </div>
+
+      <select id="num1" class="yes" name="num1">
+        <option value="">대한민국 +82</option>
+        <option value="그레나다 +1 473">그레나다 +1 473</option>
+
+    </div>
+    <div>
+
+
       <div>
         <input type="text" id="phone" class="yes" name="phone" placeholder="휴대전화번호" />
       </div>
       <div>
         <div id="txt2"></div>
+
         <div id="txt3"></div>
         <div id="txt5"></div>
         <div id="txt6"></div>
         <div id="txt4"></div>
       </div>
-
+      <br><br><br>
       <div>
         <button type="button" class="btns" id="btn"><b>인증요청</b></button>
       </div>
     </div>
-
+    </div>
   </form>
   <script>
     var id = /^(\w){6,20}$/;
     var pw = /^(\w|\W){6,20}$/;
     var name = /^([a-zA-Z가-힣\s]){2,20}$/;
+    var date = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+    var phone = /^(010)\d{4}\d{4}$/;
+    var mail = /^[a-zA-Z0-9._-]+@[a-zA-Z]{3,20}[.][a-zA-Z]{1,20}([.][a-zA-Z])*$/;
 
+
+    $('#email').on('blur', function () {
+      var mailVal = $('#email').val();
+      if (mailVal === '') {
+        $('#txt7').hide()
+      } else if (mail.test(mailVal)) {
+        $('#txt7').hide()
+      } else {
+        $('#txt7').css('color', 'red').text('이메일: 이메일 주소가 정확한지 확인해 주세요.');
+      }
+    });
+    
+    
+    
     $('#id').on('blur', function () {
+
+
 
       var idVal = $('#id').val();
 
@@ -276,59 +292,82 @@
         $('#txt').css('color', "red").text('아이디: 필수 정보입니다.');
         $('#id').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
-      }else if (id.test(idVal)){
-        
-        $('#txt').css('color', 'green').text('아이디가 유효합니다.');
-      } 
+      } else if (id.test(idVal)) {
+
+        $('#txt').hide()
+        $('#id').css('border', '1px solid #ccc')
+      }
       else {
         $('#txt').css('color', 'red').text('아이디는 영문자, 숫자, 특수문자(_)조합으로 6~20자 이내로 입력해주세요.');
       }
     });
 
-    
 
-$('#pwd').on('blur', function () {
-    var pwdVal = $('#pwd').val();
 
-    if (pwdVal === '') {
+    $('#pwd').on('blur', function () {
+      var pwdVal = $('#pwd').val();
+
+      if (pwdVal === '') {
         $('#txt1').css('color', "red").text('비밀번호: 필수 정보입니다.');
         $('#pwd').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
-    } else if (pw.test(pwdVal)) {
-        
-        $('#txt1').css('color', 'green').text('비밀번호가 유효합니다.');
-    } else {
-        $('#txt1').css('color', 'red').text('비밀번호는 영문자, 숫자, 특수문자 조합으로 6~20자 이내로 입력해주세요.');
+      } else if (pw.test(pwdVal)) {
+
+        $('#txt1').hide()
+        $('#pwd').css('border', '1px solid #ccc')
+      } else {
+        $('#txt1').css({ 'color': 'red' }).text('비밀번호는 영문자, 숫자, 특수문자 조합으로 6~20자 이내로 입력해주세요.');
         $('#pwd').css({ 'border': "3px solid red" });
-    }
-});
+      }
+    });
 
-    $('#name').on('blur', function () {
-      if ($('#name').val() == '') {
+    $('#name1').on('blur', function () {
+      var nameVal = $('#name1').val();
+
+      if (nameVal === '') {
         $('#txt2').css('color', "red").text('이름: 필수 정보입니다.');
-        $('#name').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
+        $('#name1').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
+      } else if (name.test(nameVal)) {
+        $('#txt2').hide()
+        $('#name1').css('border', '1px solid #ccc')
       } else {
         $('#txt2').css('color', 'red').text('이름은 영문자, 한글, 공백문자만 사용하여 2~20자 이내로 입력해주세요');
+        $('#name1').css({ 'border': "3px solid red" });
       }
     });
 
     $('#date').on('blur', function () {
-      if ($('#date').val() == '') {
+      var dateVal = $('#date').val();
+
+      if (dateVal === '') {
         $('#txt3').css('color', "red").text('생년월일: 필수 정보입니다.');
         $('#date').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
+      } else if (date.test(dateVal)) {
+        $('#txt3').hide()
+        $('#date').css('border', '1px solid #ccc')
+
       } else {
         $('#txt3').css('color', 'red').text('생년월일: 생년월일은 8자리 숫자로 입력해 주세요.');
+        $('#date').css({ 'border': "3px solid red" });
+
       }
     });
     $('#phone').on('blur', function () {
-      if ($('#phone').val() == '') {
+      var phoneVal = $('#phone').val();
+
+      if (phoneVal === '') {
         $('#txt4').css('color', "red").text('휴대전화번호: 필수 정보입니다.');
         $('#phone').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
+      } else if (phone.test(phoneVal)) {
+        $('#txt4').hide()
+        $('#phone').css('border', '1px solid #ccc')
+
       } else {
         $('#txt4').css('color', 'red').text('휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.');
+        $('#phone').css({ 'border': "3px solid red" });
       }
     });
 
@@ -354,9 +393,9 @@ $('#pwd').on('blur', function () {
 
 
 
-      ($('#name').val() == '')
+      ($('#name1').val() == '')
       $('#txt2').css('color', "red").text('이름: 필수 정보입니다.');
-      $('#name').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
+      $('#name1').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
 
       ($('#date').val() == '')
@@ -372,9 +411,10 @@ $('#pwd').on('blur', function () {
       $('#txt6').css('color', "red").text('성별: 성별을 선택해 주세요.');
       $('#bb').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
 
-      if ($('#phone').val() == '')
-        $('#txt4').css('color', "red").text('휴대전화번호: 필수 정보입니다.');
+      ($('#phone').val() == '')
+      $('#txt4').css('color', "red").text('휴대전화번호: 필수 정보입니다.');
       $('#phone').css({ 'border': "3px solid red", 'text-decoration': "underline", 'text-decoration-color': "red" }).addClass("placeholder-blur");
+
 
 
     })
