@@ -31,9 +31,9 @@ public class AuthenFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		System.out.println("Filter01.jsp 수행...");
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");  //처음 변경
 		String name = request.getParameter("name");
-		request.setAttribute("name", "김고은");
+		request.setAttribute("name", "김고은"); // 두 번째 변경
 		
 		if (name == null || name.equals("")) {
 			response.setCharacterEncoding("UTF-8");
@@ -48,7 +48,7 @@ public class AuthenFilter implements Filter {
 		//2. 체인의 다음 필터 처리
 		//3. response를 이용해 응답의 필터링 작업
 
-		chain.doFilter(request, response);
+		chain.doFilter(request, response); //
 	}
 
 	
