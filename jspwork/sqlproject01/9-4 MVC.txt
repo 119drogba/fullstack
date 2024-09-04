@@ -1,0 +1,49 @@
+MVC 패턴(M : Model, V:View, C:Controller) 
+M: DTO(=VO), DAO, SERVICE 데이터베이스에 관련된 일을 처리하는 객체 (백엔드)
+- DTO(=VO) : 데이터베이스에 전달할 데이터를 저장하거나 전달하는 객체
+- DAO : 데이터베이스에 접근할 수 있는 SQL명령문 객체를 담고 있는 객체
+- SERVICE : DAO에 바로 접근 전에 경유하는 객체로 아무런 기능없이 DAO에
+            일을 시키는 기능만 가지고 있는 객체
+
+V : 사용자가 보게 되는 페이지에 관련된 일을 처리하는 객체
+.html, .jsp (프론트앤드)
+
+C : 요청과 응답 사이에서 필요한 기능이나 데이터들을 제어하는 역할 또는
+    처리를 하는 객체
+(=서블릿)
+
+MVC1 패턴: 서블릿이 없었을때 사용했던 옛날 버전의 패턴
+MVC구분이 명확하지 않고 jsp소스코드에 한꺼번에 처리가 되어 있는 패턴
+
+MVC2 = MVC패턴 :
+서블릿이 존재하며 M,V,C 구분이 명확하게 나뉘어 처리되어 있는 패턴
+
+서블릿 설정방법 :
+어노테이션 방법, web.xml에 servlet태그를 사용하여 설정하는 방법
+
+<--servlet객체 생성 -->
+<servlet>
+<servlet-name>객체명</servletr-name>
+<servlet-class>패키지경로.서블릿클래스명</servlet-class>
+</servlet>
+
+<!--servlet 실행할 조건 설정 -->
+<servlet-mapping>
+<servlet-name>객체명</servlet-name>
+<url-pattern>/url경로</url-pattern>
+</servlet-mapping>
+
+1. 반드시 HttpServlet클래스를 상속받아서 구현해야 한다
+2. 반드시 doGet, doPost메소드를 오버라이드 해주어야 한다 
+
+<--servlet객체 생성 -->
+<servlet>
+<servlet-name>now</servlet-name>
+<servlet-class>com.servlet.NowServlet</servlet-class>
+</servlet>
+
+<!--servlet 실행할 조건 설정 -->
+<servlet-mapping>
+<servlet-name>now</servlet-name>
+<url-pattern>/NowPage</url-pattern>
+</servlet-mapping>

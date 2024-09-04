@@ -1,0 +1,39 @@
+dbcp (DateBase Connection Pool)
+:필요한 Connection객체를 미리 만들어 보관해두었다가 Connection객체를 요청하는
+사용자가 있으면 해당 객체를 바로 전달해주는 역할을 하는 연결객체 컨테이너임
+
+연결객체를 생성하도록 실행하는 기능과 생성된 객체를 보관하는 기능을 가지고 있으나
+연결객체를 생성하는 것은 jdbc를 이용한다.
+
+웹프로젝트에서 dbcp설정하는 방법과 순서
+1. src/main/webapp/META-INF 폴더 안에 context.xml 파일을 생성한다.
+기술형식:
+<Context>
+<Resource name="jdbc/설정한이름"
+          auth="Container"
+          type="javax.sql.DataSource" (자료형)
+          username="사용자계정명"
+          password="설정한계정의비번"
+          driverClassName="oracle.jdbc.driver.OracleDriver"
+          factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+          url="jdbc:oracle:thin:@127.0.0.1:1521:XE"
+          maxTotal="200"
+          maxIdle="100" />
+          
+</Context>
+
+2. dbcp를 이용하기 위해 java코드로 기술해야하는 순서와 방법
+java.sql패키지의 클래스나 인터페이스들을 import
+javax.sql, javax.naming 패키지의 클래스나 인터페이스들을 import
+
+3. Context인터페이스 자료형을 통해 context.xml에 설정된 데이터를 가지고 온다.
+Context 객체명 = new InitialContext();
+DataSource 객체명 = (DataSource)컨텍스트객체명.lookup("java:comp/env/컨텍스트파일의Resource 태그의 name속성값");
+
+context.xml파일의 내용
+<Resource name="jdbc/ServletProject" ~~~/>
+Context ctx = new InitialContext();
+DataSource ds = (DataSource) ctx.lookup("java:com/env/jdbc/ServletProject");
+Connection conn = ds.getConnection();
+
+          

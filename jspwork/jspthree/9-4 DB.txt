@@ -1,0 +1,35 @@
+1. UPDATE
+
+String id = request.getParameter("id");
+String sql = "select id, passwd from member where id = '"+id+"'";
+Statement st = conn.createStatement();
+ResultSet rs=st.executeQuery(sql);
+
+if(rs.next()){
+    sql = "update member set name = ? where id=?";
+    PreparedStatement ps = conn.PreparedStatement(sql);
+    ps.setStrig(1,name);
+    ps.setStrig(2,id);
+    int cnt = ps.executeUpdate();
+    if (cnt>0)out.print("OK");
+    else out.print("KIN");
+}else {
+    out.print("해당id존재x");
+}
+
+
+2. DELETE
+
+String id = request.getParameter("id");
+String passwd = request.getParameter("passwd");
+String st_sql =
+delete from member where id = '"+id+"' and passwd = '"+passwd+"'";
+String ps_sql="delete from member where id = ? and passwd = ? ";
+
+Statement st = conn.createStatement();
+st.executeUpdate(st_sql)
+
+PreparedStatement ps = conn.PrepareStatement(ps_sql);
+ps.setString(1,id);
+ps.setString(1,passwd);
+int cnt = ps.executeUpdate
