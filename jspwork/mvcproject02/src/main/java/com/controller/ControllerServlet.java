@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.LoginBean;
+import com.model.MemberVO;
 
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,7 +19,7 @@ public class ControllerServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String password = request.getParameter("passwd");
 
-		LoginBean bean = new LoginBean();
+		MemberVO bean = new MemberVO();
 		bean.setId(id);
 		bean.setPassword(password);
 		request.setAttribute("bean", bean);

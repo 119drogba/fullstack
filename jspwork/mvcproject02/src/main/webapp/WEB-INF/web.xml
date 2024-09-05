@@ -46,8 +46,24 @@
 
 <servlet-mapping>
 <servlet-name>now</servlet-name>
-<url-pattern>/NowPage</url-pattern>
+<url-pattern>/nowServlet</url-pattern>
 </servlet-mapping>
+<servlet-mapping>
+<servlet-name>now</servlet-name>
+<url-pattern>/now</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>member</servlet-name>
+<servlet-class>com.servlet.MemberController</servlet-class>
+</servlet>
+
+
+<servlet-mapping>   
+<servlet-name>member</servlet-name>
+<url-pattern>/member</url-pattern>
+</servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>

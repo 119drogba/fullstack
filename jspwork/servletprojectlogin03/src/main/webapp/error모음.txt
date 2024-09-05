@@ -1,0 +1,12 @@
+에러 : Naming ~~~ , jdbc/~~
+=> context.xml파일 또는 Connection객체를 생성하는 로직 살펴보기
+
+에러 : ivalid number ~ port number ...
+=> context.xml파일의 url속성값에 기술되어 있는 port번호 보기
+
+tomcat구동 안되는 경우
+=>web.xml 파일, Servlet에 연결되어 있는 클래스 파일들.
+
+분명히 데이터가 들어있는데, 값을 못 가져오는 느낌이 드는 에러들
+=> 데이터베이스 개발툴에서 작업한 DML명령문 뒤에 commit을 했는지
+반드시 체크

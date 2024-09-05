@@ -1,0 +1,17 @@
+1번 lib 폴더
+필요한 외부 라이브러리 파일들(.jar)
+
+2번 META-INF 폴더
+DBCP에 필요한 context.xml
+
+3번 src/main/java 폴더
+패키지들 .properties파일들, .java파일들(클래스-필터, 서블릿, 추상클래스, 인터페이스)
+
+4번 webapp 폴더
+폴더들, .html , .css, .js, .jsp파일들, 이미지파일들, 영상파일들, 텍스트파일들
+
+5번 WEB-INF 폴더
+(보안폴더-외부접근안됨) xml파일들, lib폴더, webapp폴더에 들어갈 수 있는 모든 파일들
+
+6번 web.xml 파일
+필요한 부분이 모두 생성이된 다음 마지막에 코드를 기술해야하는 파일

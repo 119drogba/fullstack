@@ -4,9 +4,11 @@
 <title>MVC</title>
 </head>
 <body>
-	<form method="post" action="ControllerServlet">
+	<a href="hello?name=관리자">hello서블릿 호출하기</a><br><br>
+	
+	<form method="post" action="member">
 		<p>	아이디 : <input type="text" name="id">
-		<p>	비밀번호 : <input type="password" name="passwd">
+		<p>	비밀번호 : <input type="password" name="password">
 		<p>	<input type="submit" value="전송">
 	</form>
 </body>
