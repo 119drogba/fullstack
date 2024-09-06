@@ -11,7 +11,7 @@ import vo.MemberBean;
 public class MemberLoginAction implements Action{
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
-		 
+		 	
 		 	HttpSession session=request.getSession();
 	   		MemberBean member=new MemberBean();
 	   		

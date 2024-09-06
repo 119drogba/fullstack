@@ -25,15 +25,15 @@ public class MemberListAction implements Action{
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('관리자가 아닙니다.');");
-		   		out.println("location.href='./memberLogin.me';");
+		   		out.println("location.href='./user_list.jsp';");
 		   		out.println("</script>");
 	   		}
 	   		else{
-	   	    forward = new ActionForward();
-	   	    MemberListService memberListService = new MemberListService();
-	   		ArrayList<MemberBean> memberList=memberListService.getMemberList();
-	   		request.setAttribute("memberList", memberList);
-	   		forward.setPath("./member_list.jsp");
+				forward = new ActionForward();
+				MemberListService memberListService = new MemberListService();
+				ArrayList<MemberBean> memberList = memberListService.getMemberList();
+				request.setAttribute("memberList", memberList);
+				forward.setPath("./member_list.jsp");
 	   		}
 	   		return forward;
 	}

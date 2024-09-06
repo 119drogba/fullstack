@@ -5,6 +5,8 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import action.Action;
 import action.MemberDeleteAction;
 import action.MemberJoinAction;
@@ -68,7 +70,16 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet
 			}catch(Exception e){
 				e.printStackTrace();
 			}
+		}else if(command.equals("/logout.me")) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./loginForm.jsp");
+			
+			
 		}
+		
 		if(forward != null){
 			if(forward.isRedirect()){
 				response.sendRedirect(forward.getPath());
