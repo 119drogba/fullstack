@@ -84,7 +84,7 @@ function hideDive(){
 			<div id="imgDiv" onclick="hideDive()"></div>
 			<%} %>
 		</section>
-		<section id="articleContentArea"><%=article.getBOARD_CONTENT()%></section>
+		<section id="articleContentArea"><%=article.getBOARD_CONTENT() %></section>
 	</section>
 	<section id="commandList">
 		<a href="boardReplyForm.bo?board_num=<%=article.getBOARD_NUM() %>&page=${page }"> [답변] </a>

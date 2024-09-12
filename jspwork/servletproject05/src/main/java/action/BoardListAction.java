@@ -13,13 +13,14 @@ import vo.PageInfo;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 
 		ArrayList<BoardBean> articleList=new ArrayList<BoardBean>();
-	  	int page=1; //현재 선택한 페이지를 받을 변수 (nowBtn에 해당됨)
-		int limit=10; // 한 페이지에 보여줄 목록 개수(onePageListCnt에 해당됨)		
+	  	int page=1;
+		int limit=10;
+		
 		if(request.getParameter("page")==null || request.getParameter("page").equals("")) page = 1;
 		else page=Integer.parseInt(request.getParameter("page"));
 		
 		BoardListService boardListService = new BoardListService();
-		int listCount=boardListService.getListCount(); //전체목록 받아옴.
+		int listCount=boardListService.getListCount(); //총 리스트 수를 받아옴.
 		articleList = boardListService.getArticleList(page,limit); //리스트를 받아옴.
 		//총 페이지 수.
    		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.

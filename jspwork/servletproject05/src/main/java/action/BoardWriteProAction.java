@@ -24,7 +24,7 @@ public class BoardWriteProAction implements Action {
 		int fileSize = 5 * 1024 * 1024;
 //		ServletContext context = request.getServletContext();
 //		realFolder = context.getRealPath(saveFolder);
-		realFolder = "C:\\jspwork\\servletproject05\\src\\main\\webapp\\"+saveFolder;
+		realFolder = "C:\\jspwork\\servletproject\\src\\main\\webapp\\"+saveFolder;
 		File f = new File(realFolder);
 		if(!f.exists()) f.mkdirs();
 		

@@ -5,6 +5,7 @@ import static util.JdbcUtil.close;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
@@ -46,7 +47,7 @@ public class ModifyDAO {
 			
 			insertCount = pstmt.executeUpdate();
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println("StudentInsert 에러 : "+e);
 		}finally {
 			close(pstmt);
@@ -69,7 +70,7 @@ public class ModifyDAO {
 			
 			insertCount = pstmt.executeUpdate();
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println("StudentInsert 에러 : "+e);
 		}finally {
 			close(pstmt);
@@ -92,7 +93,7 @@ public class ModifyDAO {
 			
 			insertCount = pstmt.executeUpdate();
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println("StudentInsert 에러 : "+e);
 		}finally {
 			close(pstmt);
