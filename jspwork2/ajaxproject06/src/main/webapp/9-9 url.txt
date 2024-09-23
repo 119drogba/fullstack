@@ -1,0 +1,13 @@
+html로 기술하는 url경로(href, action속성)
+, js로 기술하는 url경로(location.href)
+, jQuery Ajax로 기술하는 url경로("url"속성)
+
+response.sendRedierct("url경로")
+=> 앞에 아무것도 기술하지 않으면 ( ./ )가 생략된 것임.
+=> 앞에 "/" 가 기술되어 있으면 컨텍스트 패스를 제거하라는 의미임.
+
+request로 기술하는 forward("/url경로")
+서블릿이나 필터로 설정하는 url패턴 경로
+=> /앞에 컨텍스트 패스가 존재함.
+
+http://localhost:8090/ajaxproject06/index.jsp

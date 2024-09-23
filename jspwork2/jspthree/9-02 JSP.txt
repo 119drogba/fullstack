@@ -1,0 +1,11 @@
+web.xml기술순서
+<display-name>
+<description>
+<context-param>
+<filter>
+<filter-mapping>
+<listener>
+<servlet>
+<servlet-mapping>
+<welcome-file-list> : 맨 마지막에 기술하거나 error-page순서전에 기술
+<error-page>: 맨 마지막에 기술하거나 welcome-file-list순서전에 기술

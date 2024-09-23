@@ -1,0 +1,16 @@
+* {box-sizing: border-box;}
+h1{margin: 0 auto;}
+.student_into_main{width: 80%;  margin:0 auto; text-align: center; background:gainsboro;}
+
+.student_into_main input[type=radio] {
+    display: none;
+}
+.student_into_main input[type=radio]:checked+label {
+    border: 1px solid #0b4da2;
+}
+
+#image_container{width:200px; height: 250px; border: 1px solid #ccc; margin:40px; float: left; }
+input[type=text]{width:150px;}
+.into_form div label:nth-child(1) {
+	float:left;
+}
