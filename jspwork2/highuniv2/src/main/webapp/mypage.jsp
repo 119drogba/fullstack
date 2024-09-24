@@ -239,7 +239,7 @@ form .btn:hover {
 @media (max-width: 768px) {
     /* 폼 너비를 100%로 설정 */
     form {
-        width: 100%;
+        width: 95%;
         padding: 10px;
     }
 
@@ -262,7 +262,8 @@ form .btn:hover {
     }
 
     .contact-item label {
-        width: auto;
+        width: 100%;
+        text-align: left;
     }
 
     /* 입력 필드와 값의 너비를 100%로 설정 */
@@ -284,6 +285,29 @@ form .btn:hover {
         width: 100%;
     }
 }
+
+/* 추가 반응형 디자인 */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .imagesize {
+        width: 80px;
+        height: 100px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .btn-group {
+        gap: 5px;
+    }
+}
+
+
 </style>
 </head>
 
@@ -306,31 +330,31 @@ form .btn:hover {
             <div class="contact-info">
                 <!-- 학번 -->
                 <div class="contact-item">
-                    <label>학번:</label>
+                    <label>학번</label>
                     <span class="contact-value">${student.student_id}</span>
                 </div>
                 <!-- 이름 -->
                 <div class="contact-item">
-                    <label>이름:</label>
+                    <label>이름</label>
                     <span class="contact-value">${student.student_name}</span>
                 </div>
                 <!-- 이메일 -->
                 <div class="contact-item">
-                    <label for="STUDENT_EMAIL">이메일:</label>
+                    <label for="STUDENT_EMAIL">이메일</label>
                     <input type="email" id="STUDENT_EMAIL" name="STUDENT_EMAIL" value="${student.student_email}">
                     <span id="emailErrorMessage" style="display: none; color: red;">유효한 이메일 주소를 입력해주세요.</span>
                     <span id="emailValidMessage" style="display: none; color: green;">유효한 이메일 주소입니다.</span>
                 </div>
                 <!-- 전화번호 -->
                 <div class="contact-item">
-                    <label for="STUDENT_PH">전화번호:</label>
+                    <label for="STUDENT_PH">전화번호</label>
                     <input type="text" id="STUDENT_PH" name="STUDENT_PH" value="${student.student_ph}">
                     <span id="phoneErrorMessage" style="display: none; color: red;">유효한 전화번호를 입력해주세요.</span>
                     <span id="phoneValidMessage" style="display: none; color: green;">유효한 전화번호입니다.</span>
                 </div>
                 <!-- 주소 -->
                 <div class="contact-item">
-                    <label>주소:</label>
+                    <label>주소</label>
                     <div class="address-field">
                         <!-- textarea로 변경 -->
                         <textarea id="STUDENT_ADDRESS" name="STUDENT_ADDRESS" rows="2">${student.student_address}</textarea>
@@ -348,27 +372,27 @@ form .btn:hover {
                 </div>
                 <!-- 생년월일 -->
                 <div class="contact-item">
-                    <label>생년월일:</label>
+                    <label>생년월일</label>
                     <span class="contact-value">${student.student_birth}</span>
                 </div>
                 <!-- 입학날짜 -->
                 <div class="contact-item">
-                    <label>입학날짜:</label>
+                    <label>입학날짜</label>
                     <span class="contact-value">${student.student_intoday}</span>
                 </div>
                 <!-- 학년 -->
                 <div class="contact-item">
-                    <label>학년:</label>
+                    <label>학년</label>
                     <span class="contact-value">${student.student_year} 학년</span>
                 </div>
                 <!-- 전공 -->
                 <div class="contact-item">
-                    <label>전공:</label>
+                    <label>전공</label>
                     <span class="contact-value">${student.student_major}</span>
                 </div>
                 <!-- 성별 -->
                 <div class="contact-item">
-                    <label>성별:</label>
+                    <label>성별</label>
                     <span class="contact-value">
                         <c:choose>
                             <c:when test="${student.student_gender == 'M'}">남성</c:when>
@@ -378,7 +402,7 @@ form .btn:hover {
                 </div>
                 <!-- 상태 -->
                 <div class="contact-item">
-                    <label>상태:</label>
+                    <label>상태</label>
                     <span class="contact-value">${student.student_status}</span>
                 </div>
             </div>

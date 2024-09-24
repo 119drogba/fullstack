@@ -49,7 +49,7 @@ window.onload = function(){
 // 		var formdata = new FormData(formElement);
 // 		xhttp.send(formdata);
 		
-		xhttp.setRequestHeader('content-type', 'json');	
+		xhttp.setRequestHeader('content-type', 'json');
 		var formdata = {"id" : document.frm.id.value};
 		xhttp.send(JSON.stringify(formdata));
 	};
