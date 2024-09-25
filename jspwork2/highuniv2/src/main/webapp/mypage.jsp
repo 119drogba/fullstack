@@ -116,7 +116,7 @@ form {
 .contact-item label {
     width: 100px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 300;
     color: #444;
     flex-shrink: 0;
 }
@@ -128,13 +128,13 @@ form {
 .contact-item textarea {
     flex: 1;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* 이메일과 전화번호의 입력 필드 스타일 */
 .contact-item input[type="email"],
 .contact-item input[type="text"] {
-    border: 1px solid #ddd;
+    border: 0.1px solid #000;
     border-radius: 6px;
     background-color: #fff;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -143,7 +143,7 @@ form {
 
 .contact-item input[type="email"]:focus,
 .contact-item input[type="text"]:focus {
-    border-color: #66afe9;
+    border: 3px solid #000;
     outline: none;
 }
 
@@ -157,9 +157,9 @@ form {
     background-color: #fff;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: border-color 0.3s ease-in-out;
-    resize: none; /* 사용자가 크기 조절 못하게 */
-    overflow-y: hidden; /* 스크롤바 숨김 */
-    min-height: 40px; /* 최소 높이 설정 */
+    resize: none;
+    overflow-y: hidden;
+    min-height: 40px;
 }
 
 .contact-item textarea:focus {
@@ -237,25 +237,21 @@ form .btn:hover {
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-    /* 폼 너비를 100%로 설정 */
     form {
         width: 95%;
         padding: 10px;
     }
 
-    /* 이미지와 연락처 정보를 세로로 배치 */
     .image-and-contact {
         flex-direction: column;
         align-items: center;
     }
 
-    /* 이미지 크기 조정 */
     .imagesize {
         width: 120px;
         height: 160px;
     }
 
-    /* 연락처 항목을 세로로 배치 */
     .contact-item {
         flex-direction: column;
         align-items: flex-start;
@@ -266,7 +262,6 @@ form .btn:hover {
         text-align: left;
     }
 
-    /* 입력 필드와 값의 너비를 100%로 설정 */
     .contact-item input[type="email"],
     .contact-item input[type="text"],
     .contact-item textarea,
@@ -274,36 +269,46 @@ form .btn:hover {
         width: 100%;
     }
 
-    /* 버튼 그룹을 세로로 배치 */
     .btn-group {
         flex-direction: column;
         gap: 10px;
     }
 
-    /* 버튼 너비를 100%로 설정 */
     .btn {
         width: 100%;
     }
 }
 
-/* 추가 반응형 디자인 */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
+
+@media (min-width: 390px) and (max-width: 844px) {
+    .contact-item {
+        flex-direction: row; /* 컬럼과 값을 나란히 배치 */
+        align-items: center;
     }
 
-    .imagesize {
-        width: 80px;
-        height: 100px;
+    .contact-item label {
+        width: 100px; /* 레이블 너비 고정 */
+        text-align: right; /* 레이블을 오른쪽 정렬 */
+        padding-right: 10px;
     }
 
-    .btn {
-        font-size: 14px;
-        padding: 10px;
+    .contact-item input[type="email"],
+    .contact-item input[type="text"],
+    .contact-item textarea,
+    .contact-item .contact-value {
+        width: calc(100% - 120px); /* 레이블을 제외한 나머지 공간 차지 */
     }
 
+    /* 버튼 그룹 나란히 정렬 */
     .btn-group {
-        gap: 5px;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%; /* 버튼 그룹을 화면 너비에 맞춤 */
+    }
+
+    /* 버튼 너비를 동일하게 설정 */
+    .btn-group .btn {
+        width: 48%; /* 각 버튼이 화면의 절반을 차지하도록 설정 */
     }
 }
 
@@ -330,31 +335,31 @@ form .btn:hover {
             <div class="contact-info">
                 <!-- 학번 -->
                 <div class="contact-item">
-                    <label>학번</label>
+                    <label style="font-weight:bold;">학번</label>
                     <span class="contact-value">${student.student_id}</span>
                 </div>
                 <!-- 이름 -->
                 <div class="contact-item">
-                    <label>이름</label>
+                    <label style="font-weight:bold;">이름</label>
                     <span class="contact-value">${student.student_name}</span>
                 </div>
                 <!-- 이메일 -->
                 <div class="contact-item">
-                    <label for="STUDENT_EMAIL">이메일</label>
+                    <label style="font-weight:bold;" for="STUDENT_EMAIL">이메일</label>
                     <input type="email" id="STUDENT_EMAIL" name="STUDENT_EMAIL" value="${student.student_email}">
                     <span id="emailErrorMessage" style="display: none; color: red;">유효한 이메일 주소를 입력해주세요.</span>
                     <span id="emailValidMessage" style="display: none; color: green;">유효한 이메일 주소입니다.</span>
                 </div>
                 <!-- 전화번호 -->
                 <div class="contact-item">
-                    <label for="STUDENT_PH">전화번호</label>
+                    <label style="font-weight:bold;" for="STUDENT_PH">전화번호</label>
                     <input type="text" id="STUDENT_PH" name="STUDENT_PH" value="${student.student_ph}">
                     <span id="phoneErrorMessage" style="display: none; color: red;">유효한 전화번호를 입력해주세요.</span>
                     <span id="phoneValidMessage" style="display: none; color: green;">유효한 전화번호입니다.</span>
                 </div>
                 <!-- 주소 -->
                 <div class="contact-item">
-                    <label>주소</label>
+                    <label style="font-weight:bold;">주소</label>
                     <div class="address-field">
                         <!-- textarea로 변경 -->
                         <textarea id="STUDENT_ADDRESS" name="STUDENT_ADDRESS" rows="2">${student.student_address}</textarea>
@@ -372,27 +377,27 @@ form .btn:hover {
                 </div>
                 <!-- 생년월일 -->
                 <div class="contact-item">
-                    <label>생년월일</label>
+                    <label style="font-weight:bold;">생년월일</label>
                     <span class="contact-value">${student.student_birth}</span>
                 </div>
                 <!-- 입학날짜 -->
                 <div class="contact-item">
-                    <label>입학날짜</label>
+                    <label style="font-weight:bold;">입학날짜</label>
                     <span class="contact-value">${student.student_intoday}</span>
                 </div>
                 <!-- 학년 -->
                 <div class="contact-item">
-                    <label>학년</label>
+                    <label style="font-weight:bold;">학년</label>
                     <span class="contact-value">${student.student_year} 학년</span>
                 </div>
                 <!-- 전공 -->
                 <div class="contact-item">
-                    <label>전공</label>
+                    <label style="font-weight:bold;">전공</label>
                     <span class="contact-value">${student.student_major}</span>
                 </div>
                 <!-- 성별 -->
                 <div class="contact-item">
-                    <label>성별</label>
+                    <label style="font-weight:bold;">성별</label>
                     <span class="contact-value">
                         <c:choose>
                             <c:when test="${student.student_gender == 'M'}">남성</c:when>
@@ -402,7 +407,7 @@ form .btn:hover {
                 </div>
                 <!-- 상태 -->
                 <div class="contact-item">
-                    <label>상태</label>
+                    <label style="font-weight:bold;">상태</label>
                     <span class="contact-value">${student.student_status}</span>
                 </div>
             </div>
@@ -410,7 +415,7 @@ form .btn:hover {
 
         <!-- 버튼 그룹 -->
         <div class="btn-group">
-            <button type="submit" class="btn">정보 수정</button>
+            <button  type="submit" class="btn">정보 수정</button>
             <button type="button" class="btn" onclick="window.location.href='main.jsp'">취소</button>
         </div>
     </form>

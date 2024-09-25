@@ -108,7 +108,7 @@
     if (userName != null) {
 %>
     <!-- 역할에 따라 다른 호칭 사용 -->
-    <a href="<%=request.getContextPath()%>/mypage.jsp"><%= userName %><%= "professor".equals(role) ? " 교수님" : "님" %></a>
+    <a href="<%=request.getContextPath()%>/my.jsp"><%= userName %><%= "professor".equals(role) ? " 교수님" : "님" %></a>
 <% } else { %>
     <a href="<%=request.getContextPath()%>/login.jsp">로그인</a>
 <% } %>

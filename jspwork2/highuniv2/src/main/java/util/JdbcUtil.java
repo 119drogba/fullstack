@@ -1,6 +1,7 @@
 package util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.naming.Context;
@@ -69,6 +70,11 @@ public class JdbcUtil {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+
+	public static void close(ResultSet rs, PreparedStatement pstmt, Connection con) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 
