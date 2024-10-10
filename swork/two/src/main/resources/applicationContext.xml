@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="classpath:speaker/speakerContext.xml"/>
+	<bean id="sony" class="com.springbook.biz.SonySpeaker"></bean>
+	<bean id="apple" class="com.springbook.biz.AppleSpeaker"></bean>
+	<bean id="tv" class="com.springbook.biz.Samsung">
+			<constructor-arg index="1" value="2500000"/>
+		<constructor-arg  index="0" ref="sony"/>
+	
+	</bean>
+
+</beans>

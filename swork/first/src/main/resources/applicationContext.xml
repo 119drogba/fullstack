@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="ltv" class="com.kr.co.Lg" lazy-init="true" scope="prototype"/>
+	<bean name="http://stv" class="com.kr.co.Samsung" init-method="initSamsung" destroy-method="destroySamsung"/>
+	
+	
+	
+	<!-- 
+	import com.kr.co.Lg;
+	Lg lg = new Lg();
+	
+	<jsp:useBean id="lg" class="com.kr.co.Lg"/>
+	
+	 -->
+
+
+</beans>
