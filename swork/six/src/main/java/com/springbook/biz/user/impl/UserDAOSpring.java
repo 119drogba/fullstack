@@ -1,69 +1,67 @@
 package com.springbook.biz.user.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
-import com.springbook.biz.board.impl.BoardRowMapper;
 import com.springbook.biz.user.UserVO;
 
-public class UserDAOSpring extends JdbcDaoSupport {
-	private Connection conn;
-	private PreparedStatement ps ;
-	private ResultSet rs;
+@Repository
+public class UserDaoSpring extends JdbcDaoSupport{
+	
+	public final String USER_LOGIN = "SELECT * FROM USERS WHERE ID = ? AND PASSWORD = ?";
+	public final String USER_LIST ="SELECT * FROM USERS ORDER BY ID " ;
+	public final String USER_UPDATE = "UPDATE USERS SET PASSWORD = ? , NAME =?, ROLE = ? WHERE ID = ?";
+	public final String USER_INSERT = "INSERT INTO USERS VALUES (?, ? ,?, ?)";
+	public final String USER_DELETE = "DELETE FROM USERS WHERE ID = ? AND PASSWORD = ?";
 	
 	@Autowired
 	public void setSuperDataSource(DataSource dataSource) {
 		super.setDataSource(dataSource);
 	}
-	//로그인
-	public final String USER_LOGIN = "SELECT * FROM USERS WHERE ID = ? AND PASSWORD = ?";
 	
-	public UserVO login(UserVO vo) {
+	public UserVO login(UserVO vo){
+		System.out.println("getJdbcTemplate() getUser메소드 실행");
+		Object[] args = {vo.getId(), vo.getPassword()};
 		
-
 		try {
-			System.out.println();
-			Object[] args= {vo.getSeq()};
-			return getJdbcTemplate().queryForObject(BOARD_GET, new BoardRowMapper(), args);
-		}catch(IncorrectResultSizeDataAccessException err) {
+			return getJdbcTemplate().queryForObject(USER_LOGIN, new UserRowMapper(), args);
+//		}catch(EmptyResultDataAccessException e) {
+		}catch(IncorrectResultSizeDataAccessException e) {
 			return null;
 		}
 	}
-		
-	}
 	
-	
-	//회원목록
-	public final String USER_LIST ="SELECT * FROM USERS ORDER BY ID " ;
 	public List<UserVO> getUserList(){
-		
+		System.out.println("getJdbcTemplate() selectList메소드 실행");
+		try {
+			return getJdbcTemplate().query(USER_LIST, new UserRowMapper());
+		}catch(EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 	
-	
-	//회원수정
-	public final String USER_UPDATE = "UPDATE USERS SET PASSWORD = ? , NAME =?, ROLE = ? WHERE ID = ?";
-	public int userUpdate(UserVO vo) {
-		
-			
-	
+	public void userUpdate(UserVO vo) {
+		System.out.println("getJdbcTemplate() updateUser메소드 실행");
+		Object[] args = { vo.getPassword(), vo.getName(), vo.getId() };
+		getJdbcTemplate().update(USER_UPDATE, args);
 	}
 	
-	//회원가입
-	public final String USER_INSERT = "INSERT INTO USERS VALUES (?, ? ,?, ?)";
-	public int userInsert(UserVO vo) {
-		
+	public void userInsert(UserVO vo) {
+		System.out.println("getJdbcTemplate() insertUser메소드 실행");
+		Object[] args = {vo.getId(), vo.getPassword(), vo.getName(), vo.getRole()};
+		getJdbcTemplate().update(USER_INSERT, args);
 	}
 	
-	//회원 탈퇴
-	public final String USER_DELETE = "DELETE FROM USERS WHERE ID = ? AND PASSWORD = ?";
-	public int userDelete(UserVO vo) {
-		
+	public void userDelete(UserVO vo) {
+		System.out.println("getJdbcTemplate() deleteUser메소드 실행");
+		getJdbcTemplate().update(USER_DELETE, vo.getId());
+	}
+	
 }

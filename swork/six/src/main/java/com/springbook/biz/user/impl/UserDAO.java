@@ -21,13 +21,12 @@ public class UserDAO {
 	public final String USER_LOGIN = "SELECT * FROM USERS WHERE ID = ? AND PASSWORD = ?";
 	
 	public UserVO login(UserVO vo) {
-		System.out.println("user의 DAO login실행");
 		UserVO uvo = null;
 		try {
 			conn = JDBCUtil.getConnection();
 			ps = conn.prepareStatement(USER_LOGIN);
-			ps.setString(1, vo.getId());  //"admin"
-			ps.setString(2, vo.getPassword()); //"1111"
+			ps.setString(1, vo.getId());
+			ps.setString(2, vo.getPassword());
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				uvo = new UserVO();
