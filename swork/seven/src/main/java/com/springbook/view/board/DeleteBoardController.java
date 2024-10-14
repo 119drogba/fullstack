@@ -11,21 +11,19 @@ import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 
 public class DeleteBoardController implements Controller {
-
 	@Autowired
 	BoardService boardService;
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		//1. 사용자 입력 정보 추출
+		// 1. 사용자 입력 정보 추출
 		//request.setCharacterEncoding("utf-8");
 		String seq = request.getParameter("seq");
 		
-		//2. DB 연동 처리
+		// 2. DB 연동 처리
 		BoardVO vo = new BoardVO();
 		vo.setSeq(Integer.parseInt(seq));
 		
-
 		boardService.deleteBoard(vo);
 		
 		// 3. 화면 네비게이션
@@ -34,3 +32,14 @@ public class DeleteBoardController implements Controller {
 		return mav;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

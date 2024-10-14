@@ -11,18 +11,17 @@ import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.impl.BoardDAODBCP;
 
 public class GetBoardController implements Controller {
-	
 	@Autowired
 	BoardDAODBCP boardDAO;
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("글 상제 조회 처리");
+		System.out.println("글 상세 조회 처리");
 		
-		//1. 검색할 게시글 번호 추출
+		// 1. 검색할 게시글 번호 추출
 		String seq = request.getParameter("seq");
 		
-		//2. DB 연동 처리
+		// 2. DB 연동 처리
 		BoardVO vo = new BoardVO();
 		vo.setSeq(Integer.parseInt(seq));
 		
@@ -31,8 +30,15 @@ public class GetBoardController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("board", board);
 		mav.setViewName("board/getBoard");
+		
 		return mav;
 	}
-	
 
 }
+
+
+
+
+
+
+
