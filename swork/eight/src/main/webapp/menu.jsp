@@ -14,6 +14,16 @@
 		<c:when test='${userId ne NULL}'>
 			<ul class="navbar-nav nav-right">
 				<li class="nav-item"><a class="nav-link">${userName}님</a></li>
+				<li class="nav-item">
+				<c:choose>
+				<c:when test='${userId eq "admin" }'>
+				<a class="nav-link" href="userList.do">회원관리</a>
+				</c:when>
+				<c:otherwise>
+				<a class="nav-link" href="selUser.do?id=${userId}">마이페이지</a>
+				</c:otherwise>
+				</c:choose>
+				</li>
 				<li class="nav-item"><a class="nav-link" href="logout.do">로그아웃</a></li>
 			</ul>
 		</c:when>
@@ -21,6 +31,10 @@
 			<ul class="navbar-nav nav-right">
 				<li class="nav-item"><a class="nav-link" href="login.do">로그인</a></li>
 			</ul>
+			
+				<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+			</ul>
+			
 		</c:otherwise>
 	</c:choose>
 </nav>

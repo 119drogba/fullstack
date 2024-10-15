@@ -60,7 +60,8 @@ public class UserDAODBCP {
 		Object[] args = { vo.getPassword(), vo.getName(), vo.getRole(), vo.getId() };
 		jdbcTemplate.update(USER_UPDATE, args);
 	}
-
+	
+	//회원가입
 	public final String USER_INSERT = "INSERT INTO USERS VALUES (?, ? ,?, ?)";
 
 	public void userInsert(UserVO vo) {
@@ -69,7 +70,7 @@ public class UserDAODBCP {
 		jdbcTemplate.update(USER_INSERT, args);
 	}
 
-	public final String USER_DELETE = "DELETE FROM USERS WHERE ID = ? AND PASSWORD = ?";
+	public final String USER_DELETE = "DELETE FROM USERS WHERE ID = ?";
 
 	public void userDelete(UserVO vo) {
 		System.out.println("jdbcTemplate deleteUser메소드 실행");
