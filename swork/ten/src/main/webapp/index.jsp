@@ -9,7 +9,9 @@
 	        method:"GET", 
 	        url : 'test.do',
 	        success : function(data) {
+	        	//a= ["2024-10-17", "11:45:33"]
 	        	let a = data.split(" ");
+	        	//t => ["11","45" ,"33"]
 	        	let t = a[1].split(":");
 	        	let tm = t[0]+":"+t[1]+":"+t[2];
 	        	
@@ -23,11 +25,12 @@
 	
 	window.setInterval("sendRequest()", 1000);	// 매 1초마다 Ajax 요청을 보냄.	
 	
+	
 </script>
 <div class="jumbotron" style="background-color: #ccc!important;text-align:center;padding-bottom:30px!important">
 	<div class="container">
 		<h1 class="display-3">환영합니다</h1>
-		<h3>Welcome to Gesipan!</h3>
+		<h3>Welcome!</h3>
 	</div>
 </div>	
 

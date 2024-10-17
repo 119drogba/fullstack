@@ -3,35 +3,34 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardDAO">
-<!-- resultType : 패키지포함. 자료형명(클래스명) 또는 자료형 별칭을 기술
-예: resultType = "com.springbook.biz.board.BoardVO"
-예: resultType = "java.lang.Byte" 또는 "byte" ***자료형별칭은 Mybatis사이트 참고
-속성에 result가 들어가 있으면 : SQL쿼리문을 실행한 후의 결과값에 대한 자료형을 설정하는 속성
-**result속성들은 select쿼리문(태그)에는 반드시 기술해야한다.
-속성에 parameter가 들어가 있으면 : SQL쿼리문의 바인드변수에 필요한 데이터의 자료형을 설정하는 속성
-**parameter속성은 생략 가능. 자동으로 자료형인식함.
--->
+	<!-- resultType : 패키지포함. 자료형명(클래스명) 또는 자료형 별칭을 기술 예: resultType = "com.springbook.biz.board.BoardVO" 
+		예: resultType = "java.lang.Byte" 또는 "byte" ***자료형별칭은 Mybatis사이트 참고 속성에 result가 
+		들어가 있으면 : SQL쿼리문을 실행한 후의 결과값에 대한 자료형을 설정하는 속성 **result속성들은 select쿼리문(태그)에는 
+		반드시 기술해야한다. 속성에 parameter가 들어가 있으면 : SQL쿼리문의 바인드변수에 필요한 데이터의 자료형을 설정하는 속성 
+		**parameter속성은 생략 가능. 자동으로 자료형인식함. -->
 
-<insert id="insertBoard">
-INSERT INTO board (title, writer, content, filename)
-    VALUES (#{title}, #{writer}, #{content}, #{filename})
+	<insert id="insertBoard">
+		INSERT INTO board (title, writer, content, filename)
+		VALUES (#{title}, #{writer}, #{content}, #{filename})
 
-</insert>
+	</insert>
 
-<update id="updateBoard">
+	<update id="updateBoard">
 		UPDATE BOARD
-		SET TITLE = #{title} , WRITER=#{writer}, CONTENT=#{content}
+		SET TITLE = #{title} , WRITER=#{writer},
+		CONTENT=#{content}
 		WHERE SEQ = #{seq}
 	</update>
 
-<delete id="deleteBoard">
+	<delete id="deleteBoard">
 		DELETE FROM BOARD WHERE SEQ = #{seq}
 	</delete>
-	
+
 	<select id="getBoard" resultType="board">
-		SELECT * FROM BOARD WHERE SEQ = #{seq}
+		SELECT * FROM BOARD WHERE SEQ =
+		#{seq}
 	</select>
-	
+
 	<select id="getBoardList" resultType="board">
 		SELECT * FROM BOARD WHERE 1=1
 
@@ -43,12 +42,5 @@ INSERT INTO board (title, writer, content, filename)
 		</if>
 	</select>
 
-  <select id="현재 select 태그객체명" resultType="쿼리문이실행된 결과의 자료형을 기술하는 자리">
-  <!-- select쿼리문 기술 및 바인드 변수 기술 -->
-  <!-- 반드시 바인드 변수는 보내는 파라미터에 있는 이름과 동일하게 기술 -->
 
-
-  </select>	
- 
-  
 </mapper>
