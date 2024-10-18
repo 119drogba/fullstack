@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% 
-String userId =  session.getAttribute("userId")!=null?session.getAttribute("userId").toString():"";
-%>
 <nav id="stNav" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
   <a class="navbar-brand" href="index.jsp">Home</a>
   <ul class="navbar-nav">
@@ -9,7 +6,7 @@ String userId =  session.getAttribute("userId")!=null?session.getAttribute("user
       <a class="nav-link" href="/getBoardList.do">글목록</a>
     </li>    
     <li class="nav-item">
-      <a class="nav-link" href="/insertBoard.do">글쓰기</a>
+      <a class="nav-link" href="/insertBoard">글쓰기</a>
     </li>    
   </ul>
  <c:choose>
@@ -56,7 +53,7 @@ String userId =  session.getAttribute("userId")!=null?session.getAttribute("user
 	      <a class="nav-link" href="/getBoardList.do">글목록</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" <c:if test='${ userId ne null}'>href="/insertBoard.do"</c:if>>글쓰기</a>
+	      <a class="nav-link" href="/insertBoard">글쓰기</a>
 	    </li>
 <c:choose>
  	<c:when test='${userId ne null}' >

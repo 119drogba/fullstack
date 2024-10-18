@@ -67,7 +67,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public String login(UserVO vo, HttpSession session) {
+	public String login(UserVO vo, HttpSession session, Model model) {
 
 		if (userService.getUser(vo) != null) {
 			session.setAttribute("userId", userService.getUser(vo).getId());
@@ -75,7 +75,8 @@ public class LoginController {
 			session.setAttribute("userRole", userService.getUser(vo).getRole());
 			return "redirect:getBoardList.do";
 		} else {
-			return "user/login?error=1";
+			model.addAttribute("error", "err");
+			return "user/login";
 		}
 	}
 

@@ -13,7 +13,7 @@
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="50000000"></property>
+		<property name="maxUploadSize" value="50000000"/>
 	</bean>
 
 	<!-- 인터셉터 객체 생성 -->
@@ -21,7 +21,7 @@
 	<!-- Interceptor 설정 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/insertBoard.do" />
+			<mvc:mapping path="/insertBoard" />
 			<mvc:mapping path="/updateBoard.do" />
 			<mvc:mapping path="/deleteBoard.do" />
 			<ref bean="authenticationInterceptor" />

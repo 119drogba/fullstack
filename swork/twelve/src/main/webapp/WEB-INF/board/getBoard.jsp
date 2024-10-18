@@ -27,7 +27,7 @@
 		out.println("</div>");
 	}
 %>
-  <form name="fm" action="/updateBoard.do" method="post">
+  <form name="fm" action="/updateBoard.do" method="post" enctype="multipart/form-data">
   <input type="hidden" name="seq" value="${board.seq}">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -88,9 +88,16 @@
 	  	<button type="submit" class="btn btn-primary" <%=sts %>>글수정</button>
 	  	<button id="conWrite" type="button" class="btn btn-primary" <%=sts %>>글쓰기</button>
 	  	<button id="conDel" type="button" class="btn btn-primary" <%=sts %>>글삭제</button>
-	  	<button id="conList" type="button" value='${paging.nowPage}' class="btn btn-primary">글목록</button>
+	  	<button id="conList" type="button" class="btn btn-primary">글목록</button>
 	</div>
-  </form>  
+  </form>
+  <!-- 241017_추가 페이징처리와 목록, 검색 유지 기능 처리(시작)  -->
+  <form name="hideFrm" style="display:none;">
+	  <input type="hidden" name="nowPage" value="${nowPage}" >
+	  <input type="hidden" name="searchKeyword" value="${searchKeyword}" >
+	  <input type="hidden" name="searchCondition" value="${searchCondition}" >
+  </form>
+  <!-- 241017_추가 페이징처리와 목록, 검색 유지 기능 처리(종료)  -->
 </div>
 <!-- 클릭시 보이는 이미지 start -->
 <div id="imgBox" class="container-fluid">

@@ -65,7 +65,7 @@ public class BoardController {
 		return "redirect:getBoardList.do";
 	}
 
-	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertBoard", method = RequestMethod.GET)
 	public String insertView(BoardVO vo) throws IllegalStateException, IOException {
 		return "board/insertBoard";
 	}
@@ -108,13 +108,22 @@ public class BoardController {
 	
 	// 글 상세 조회
 	@RequestMapping("/getBoard.do")
-	public String getBoard(@RequestParam(value="error", required = false) String error,BoardVO vo, Model model) {
+	public String getBoard(
+			@RequestParam(value="error", required = false) String error,
+			@RequestParam(value="nowPage", required = false) String nowPage, /* 241017_추가 페이징처리와 목록, 검색 유지 기능 처리 */
+			BoardVO vo, Model model
+	) {
 		BoardVO mboard = boardService.getBoard(vo);
 		if (!(error==null || error.equals(""))) cntChk = 0;
 		else if(cntChk <= 0) boardService.updateCnt(mboard);
 		else cntChk = 0;
 		mboard = boardService.getBoard(vo);
 		model.addAttribute("board", mboard);
+		/* 241017_추가 페이징처리와 목록, 검색 유지 기능 처리(시작) */
+		model.addAttribute("searchCondition", vo.getSearchCondition());
+		model.addAttribute("searchKeyword", vo.getSearchKeyword());
+		model.addAttribute("nowPage", nowPage);
+		/* 241017_추가 페이징처리와 목록, 검색 유지 기능 처리(종료) */
 		return "board/getBoard";
 	}
 
@@ -124,17 +133,17 @@ public class BoardController {
 			@RequestParam(value = "nowPage", required = false) String nowPage) {
 		System.out.println("글 목록 검색 처리");
 		
-		String cntPerPage = "5";
+		String cntPerPage = "5"; //한페이지보여줄목록수
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
-		else
-			vo.setSearchCondition(vo.getSearchCondition());
+//		else
+//			vo.setSearchCondition(vo.getSearchCondition());
 		if (vo.getSearchKeyword() == null)
 			vo.setSearchKeyword("");
-		else
-			vo.setSearchKeyword(vo.getSearchKeyword());
+//		else
+//			vo.setSearchKeyword(vo.getSearchKeyword());
 
-		int total = boardService.countBoard(vo); 
+		int total = boardService.countBoard(vo);
 		if (nowPage == null) {
 			nowPage = "1"; 
 		}

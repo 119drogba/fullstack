@@ -12,7 +12,7 @@
 					out.println("</div>");
 				}
 			
-				if(request.getParameter("result") != null){
+				if(request.getAttribute("result") != null){
 					out.println("<script>");
 					out.println("alert('회원가입이 되었습니다.');");
 					out.println("</script>");

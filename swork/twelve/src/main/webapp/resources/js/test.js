@@ -26,14 +26,18 @@ $(document).ready(function(){
 		}
 	});
 	
-$("#conList").click(function() {
-    var currentPage = $(this).val(); 
-    location.href = "/getBoardList.do?nowPage=" + currentPage; 
-});
+	
+	/* 241017_추가 페이징처리와 목록, 검색 유지 기능 처리*/
+	$("#conList").click(function(){
+		document.hideFrm.action="/getBoardList.do";
+		document.hideFrm.method="post";
+		document.hideFrm.submit();
+	});
 });
 
-function selTr(val, keyword, condition, nowpage) {
-    location.href = "/getBoard.do?seq=" + val + "&searchKeyword=" + keyword + "&searchCondition=" + condition + "&paging.nowPage=" + nowpage;
+/* 241017_추가 페이징처리와 목록, 검색 유지 기능 처리*/
+function selTr(val, val2, val3, nowpage){
+	location.href = "/getBoard.do?seq="+val+'&searchCondition='+val2+'&searchKeyword='+val3+'&nowPage='+nowpage;
 }
 
 function selUser(val){
